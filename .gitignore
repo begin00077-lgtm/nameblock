@@ -1,0 +1,21 @@
+# 签名材料 —— 绝不提交
+*.p12
+*.jks
+*.keystore
+!debug.keystore
+
+# 构建中间产物
+*.log
+__pycache__/
+*.pyc
+*.zip
+*.jar
+tmp/
+
+# 但 apk/ 下的成品要发布
+!apk/
+!apk/*.apk
+
+# 系统
+.DS_Store
+Thumbs.db
