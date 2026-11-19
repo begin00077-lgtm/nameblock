@@ -192,12 +192,12 @@
         }
     .end annotation
 
-    .line 255
+    .line 285
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 256
+    .line 286
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p2
@@ -223,7 +223,7 @@
 
     goto :goto_9
 
-    .line 257
+    .line 287
     :cond_1e
     iget-object p2, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
@@ -241,7 +241,7 @@
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 258
+    .line 288
     invoke-direct {p0}, Lcom/dsh/nameblock/Store;->notifyChanged()V
 
     return-void
@@ -259,15 +259,15 @@
         }
     .end annotation
 
-    .line 350
+    .line 380
     invoke-direct {p0}, Lcom/dsh/nameblock/Store;->notifyChanged()V
 
-    .line 351
+    .line 381
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 352
+    .line 382
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -287,7 +287,7 @@
 
     const/4 v2, 0x0
 
-    .line 353
+    .line 383
     aget-object v2, v1, v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -316,7 +316,7 @@
 
     goto :goto_c
 
-    .line 355
+    .line 385
     :cond_38
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
@@ -352,7 +352,7 @@
         }
     .end annotation
 
-    .line 245
+    .line 275
     new-instance p0, Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
@@ -364,7 +364,7 @@
     :cond_8
     const-string v0, "\n"
 
-    .line 247
+    .line 277
     invoke-virtual {p1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object p1
@@ -378,12 +378,12 @@
 
     aget-object v2, p1, v1
 
-    .line 248
+    .line 278
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 249
+    .line 279
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v3
@@ -412,13 +412,13 @@
 
     goto :goto_9
 
-    .line 230
+    .line 240
     :cond_5
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 231
+    .line 241
     :goto_9
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
@@ -428,23 +428,23 @@
 
     return-void
 
-    .line 232
+    .line 242
     :cond_10
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
 
     move-result-object v0
 
-    .line 233
+    .line 243
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     const/4 v1, 0x0
 
-    .line 234
+    .line 244
     invoke-interface {v0, v1, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     const-string p1, "kw_list"
 
-    .line 235
+    .line 245
     invoke-direct {p0, p1, v0}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-void
@@ -455,7 +455,7 @@
 
     monitor-enter p0
 
-    .line 361
+    .line 391
     :try_start_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -489,7 +489,7 @@
 
     move-result-object p1
 
-    .line 362
+    .line 392
     iget-object p2, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string p3, "log"
@@ -500,7 +500,7 @@
 
     move-result-object p2
 
-    .line 363
+    .line 393
     new-instance p3, Ljava/lang/StringBuilder;
 
     invoke-direct {p3, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
@@ -513,14 +513,14 @@
 
     const-string v0, "\n"
 
-    .line 365
+    .line 395
     invoke-virtual {p2, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object p2
 
     const/4 v0, 0x0
 
-    .line 366
+    .line 396
     :goto_46
     array-length v1, p2
 
@@ -530,7 +530,7 @@
 
     if-ge v0, v1, :cond_60
 
-    .line 367
+    .line 397
     aget-object v1, p2, v0
 
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
@@ -550,7 +550,7 @@
 
     goto :goto_46
 
-    .line 370
+    .line 400
     :cond_60
     iget-object p1, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
@@ -570,12 +570,12 @@
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 371
+    .line 401
     invoke-direct {p0}, Lcom/dsh/nameblock/Store;->notifyChanged()V
     :try_end_76
     .catchall {:try_start_1 .. :try_end_76} :catchall_78
 
-    .line 372
+    .line 402
     monitor-exit p0
 
     return-void
@@ -591,12 +591,12 @@
 .method public addWhitelist(Ljava/lang/String;)V
     .registers 4
 
-    .line 104
+    .line 114
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 105
+    .line 115
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -605,26 +605,26 @@
 
     return-void
 
-    .line 106
+    .line 116
     :cond_b
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
 
     move-result-object v0
 
-    .line 107
+    .line 117
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     const/4 v1, 0x0
 
-    .line 108
+    .line 118
     invoke-interface {v0, v1, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     const-string v1, "white_list"
 
-    .line 109
+    .line 119
     invoke-direct {p0, v1, v0}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
-    .line 112
+    .line 122
     invoke-virtual {p0, p1}, Lcom/dsh/nameblock/Store;->removeNumber(Ljava/lang/String;)V
 
     return-void
@@ -641,7 +641,7 @@
         }
     .end annotation
 
-    .line 127
+    .line 137
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v0, "allowed"
@@ -654,7 +654,7 @@
 
     if-nez p0, :cond_11
 
-    .line 128
+    .line 138
     new-instance p0, Ljava/util/LinkedHashSet;
 
     invoke-direct {p0}, Ljava/util/LinkedHashSet;-><init>()V
@@ -677,7 +677,7 @@
 
     monitor-enter p0
 
-    .line 386
+    .line 416
     :try_start_1
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
@@ -695,12 +695,12 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 387
+    .line 417
     invoke-direct {p0}, Lcom/dsh/nameblock/Store;->notifyChanged()V
     :try_end_15
     .catchall {:try_start_1 .. :try_end_15} :catchall_17
 
-    .line 388
+    .line 418
     monitor-exit p0
 
     return-void
@@ -711,6 +711,107 @@
     monitor-exit p0
 
     throw v0
+.end method
+
+.method public editKeyword(Ljava/lang/String;Ljava/lang/String;)V
+    .registers 5
+
+    const-string v0, ""
+
+    if-nez p1, :cond_6
+
+    move-object p1, v0
+
+    goto :goto_a
+
+    .line 250
+    :cond_6
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p1
+
+    :goto_a
+    if-nez p2, :cond_d
+
+    goto :goto_11
+
+    .line 251
+    :cond_d
+    invoke-virtual {p2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 252
+    :goto_11
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p2
+
+    if-nez p2, :cond_48
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p2
+
+    if-nez p2, :cond_48
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_24
+
+    goto :goto_48
+
+    .line 253
+    :cond_24
+    invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
+
+    move-result-object p2
+
+    .line 254
+    invoke-interface {p2, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+
+    move-result v1
+
+    if-gez v1, :cond_32
+
+    .line 256
+    invoke-virtual {p0, v0}, Lcom/dsh/nameblock/Store;->addKeyword(Ljava/lang/String;)V
+
+    return-void
+
+    .line 259
+    :cond_32
+    invoke-interface {p2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 260
+    invoke-interface {p2, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+
+    move-result p1
+
+    if-gez p1, :cond_40
+
+    const/4 p1, 0x0
+
+    .line 262
+    invoke-interface {p2, p1, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
+
+    goto :goto_43
+
+    .line 264
+    :cond_40
+    invoke-interface {p2, p1, v0}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    :goto_43
+    const-string p1, "kw_list"
+
+    .line 266
+    invoke-direct {p0, p1, p2}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
+
+    :cond_48
+    :goto_48
+    return-void
 .end method
 
 .method public enabled()Z
@@ -730,10 +831,88 @@
     return p0
 .end method
 
+.method public hasKeyword(Ljava/lang/String;)Z
+    .registers 5
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_4
+
+    return v0
+
+    .line 94
+    :cond_4
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p1
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 95
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_15
+
+    return v0
+
+    .line 96
+    :cond_15
+    invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_1d
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3b
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 97
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1d
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_3b
+    return v0
+.end method
+
 .method public isAllowed(Ljava/lang/String;)Z
     .registers 2
 
-    .line 136
+    .line 146
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->allowed()Ljava/util/Set;
 
     move-result-object p0
@@ -754,13 +933,13 @@
 
     monitor-enter p0
 
-    .line 321
+    .line 351
     :try_start_1
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 322
+    .line 352
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -775,7 +954,7 @@
 
     return v1
 
-    .line 323
+    .line 353
     :cond_e
     :try_start_e
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
@@ -799,10 +978,10 @@
 
     check-cast v2, [Ljava/lang/String;
 
-    .line 324
+    .line 354
     aget-object v2, v2, v1
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
     :try_end_28
@@ -816,21 +995,8 @@
 
     return p0
 
-    .line 326
+    .line 356
     :cond_2d
-    invoke-virtual {p0, p1}, Lcom/dsh/nameblock/Store;->matchKeyword(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2d_nokw
-
-    monitor-exit p0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_2d_nokw
     monitor-exit p0
 
     return v1
@@ -846,7 +1012,7 @@
 .method public isWhitelisted(Ljava/lang/String;)Z
     .registers 2
 
-    .line 122
+    .line 132
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
 
     move-result-object p0
@@ -873,7 +1039,7 @@
         }
     .end annotation
 
-    .line 197
+    .line 207
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v1, "kw_list"
@@ -888,7 +1054,7 @@
 
     if-nez v0, :cond_57
 
-    .line 199
+    .line 209
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v4, "kw"
@@ -897,14 +1063,14 @@
 
     move-result-object v0
 
-    .line 200
+    .line 210
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     if-nez v0, :cond_25
 
-    .line 202
+    .line 212
     sget-object v0, Lcom/dsh/nameblock/Store;->DEFAULT_KEYWORDS:[Ljava/lang/String;
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -915,7 +1081,7 @@
 
     goto :goto_53
 
-    .line 205
+    .line 215
     :cond_25
     sget-object v4, Lcom/dsh/nameblock/Store;->DEFAULT_KEYWORDS:[Ljava/lang/String;
 
@@ -941,7 +1107,7 @@
 
     goto :goto_29
 
-    .line 206
+    .line 216
     :cond_39
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
@@ -971,20 +1137,20 @@
 
     goto :goto_3d
 
-    .line 208
+    .line 218
     :cond_53
     :goto_53
     invoke-direct {p0, v1, v2}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-object v2
 
-    .line 211
+    .line 221
     :cond_57
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/Store;->splitLines(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 212
+    .line 222
     iget-object v2, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v4, "kw_order_fixed"
@@ -995,12 +1161,12 @@
 
     if-nez v2, :cond_b4
 
-    .line 214
+    .line 224
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 215
+    .line 225
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -1035,13 +1201,13 @@
 
     goto :goto_6e
 
-    .line 216
+    .line 226
     :cond_8a
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 217
+    .line 227
     sget-object v2, Lcom/dsh/nameblock/Store;->DEFAULT_KEYWORDS:[Ljava/lang/String;
 
     array-length v6, v2
@@ -1064,11 +1230,11 @@
 
     goto :goto_92
 
-    .line 218
+    .line 228
     :cond_a2
     invoke-direct {p0, v1, v5}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
-    .line 219
+    .line 229
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -1092,7 +1258,7 @@
 .method public lastCallNumber()Ljava/lang/String;
     .registers 3
 
-    .line 148
+    .line 158
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v0, "last_call"
@@ -1117,7 +1283,7 @@
 .method public lastCallWasContact()Z
     .registers 3
 
-    .line 153
+    .line 163
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v0, "last_call_contact"
@@ -1162,13 +1328,13 @@
 
     monitor-enter p0
 
-    .line 375
+    .line 405
     :try_start_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 376
+    .line 406
     iget-object v1, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v2, "log"
@@ -1183,7 +1349,7 @@
 
     if-nez v1, :cond_14
 
-    .line 377
+    .line 407
     monitor-exit p0
 
     return-object v0
@@ -1192,7 +1358,7 @@
     :try_start_14
     const-string v2, "\n"
 
-    .line 378
+    .line 408
     invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
@@ -1210,12 +1376,12 @@
 
     const/4 v6, -0x1
 
-    .line 379
+    .line 409
     invoke-virtual {v4, v5, v6}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 380
+    .line 410
     array-length v5, v4
 
     const/4 v6, 0x4
@@ -1231,7 +1397,7 @@
 
     goto :goto_1c
 
-    .line 382
+    .line 412
     :cond_31
     monitor-exit p0
 
@@ -1252,7 +1418,7 @@
 
     if-eqz p1, :cond_2f
 
-    .line 263
+    .line 293
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
@@ -1261,7 +1427,7 @@
 
     goto :goto_2f
 
-    .line 264
+    .line 294
     :cond_a
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
 
@@ -1284,12 +1450,12 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 265
+    .line 295
     invoke-static {v1}, Lcom/dsh/nameblock/Norm;->name(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 266
+    .line 296
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v3
@@ -1348,13 +1514,13 @@
 
     monitor-enter p0
 
-    .line 314
+    .line 344
     :try_start_1
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 315
+    .line 345
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
 
     move-result-object v0
@@ -1378,7 +1544,7 @@
 
     const/4 v2, 0x0
 
-    .line 316
+    .line 346
     aget-object v2, v1, v2
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1408,7 +1574,7 @@
     :try_end_2d
     .catchall {:try_start_2b .. :try_end_2d} :catchall_2f
 
-    .line 318
+    .line 348
     monitor-exit p0
 
     return-object p1
@@ -1435,13 +1601,13 @@
 
     monitor-enter p0
 
-    .line 337
+    .line 367
     :try_start_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 338
+    .line 368
     iget-object v1, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v2, "numbers"
@@ -1454,7 +1620,7 @@
 
     if-eqz v1, :cond_57
 
-    .line 339
+    .line 369
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
@@ -1466,7 +1632,7 @@
     :cond_19
     const-string v2, "\n"
 
-    .line 340
+    .line 370
     invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
@@ -1486,12 +1652,12 @@
 
     const/4 v7, -0x1
 
-    .line 341
+    .line 371
     invoke-virtual {v5, v6, v7}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 342
+    .line 372
     array-length v6, v5
 
     const/4 v7, 0x2
@@ -1510,7 +1676,7 @@
 
     new-array v6, v6, [Ljava/lang/String;
 
-    .line 343
+    .line 373
     aget-object v8, v5, v3
 
     aput-object v8, v6, v3
@@ -1544,13 +1710,13 @@
 
     goto :goto_22
 
-    .line 346
+    .line 376
     :cond_55
     monitor-exit p0
 
     return-object v0
 
-    .line 339
+    .line 369
     :cond_57
     :goto_57
     monitor-exit p0
@@ -1570,13 +1736,13 @@
 
     monitor-enter p0
 
-    .line 275
+    .line 305
     :try_start_1
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 276
+    .line 306
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -1591,7 +1757,7 @@
 
     goto :goto_79
 
-    .line 277
+    .line 307
     :cond_12
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
 
@@ -1601,7 +1767,7 @@
 
     move v2, v1
 
-    .line 278
+    .line 308
     :goto_18
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -1615,7 +1781,7 @@
 
     if-ge v2, v3, :cond_51
 
-    .line 279
+    .line 309
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1630,7 +1796,7 @@
 
     if-eqz v3, :cond_4e
 
-    .line 280
+    .line 310
     invoke-interface {v0, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     new-array v2, v5, [Ljava/lang/String;
@@ -1644,7 +1810,7 @@
     :cond_3a
     aput-object p2, v2, v6
 
-    .line 281
+    .line 311
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide p1
@@ -1657,12 +1823,12 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 282
+    .line 312
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/Store;->saveNumbers(Ljava/util/List;)V
     :try_end_4c
     .catchall {:try_start_1 .. :try_end_4c} :catchall_7b
 
-    .line 283
+    .line 313
     monitor-exit p0
 
     return-void
@@ -1685,7 +1851,7 @@
     :cond_59
     aput-object p2, v2, v6
 
-    .line 286
+    .line 316
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide p1
@@ -1698,7 +1864,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 287
+    .line 317
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result p1
@@ -1711,18 +1877,18 @@
 
     move-result-object v0
 
-    .line 288
+    .line 318
     :cond_74
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/Store;->saveNumbers(Ljava/util/List;)V
     :try_end_77
     .catchall {:try_start_51 .. :try_end_77} :catchall_7b
 
-    .line 289
+    .line 319
     monitor-exit p0
 
     return-void
 
-    .line 276
+    .line 306
     :cond_79
     :goto_79
     monitor-exit p0
@@ -1753,7 +1919,7 @@
 
     if-eqz p1, :cond_9e
 
-    .line 293
+    .line 323
     :try_start_3
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
@@ -1763,13 +1929,13 @@
 
     goto/16 :goto_9e
 
-    .line 294
+    .line 324
     :cond_b
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
-    .line 295
+    .line 325
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -1790,14 +1956,14 @@
 
     check-cast v1, [Ljava/lang/String;
 
-    .line 296
+    .line 326
     aget-object v3, v1, v2
 
     invoke-static {v3}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 297
+    .line 327
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
@@ -1821,7 +1987,7 @@
 
     const/4 v2, 0x1
 
-    .line 298
+    .line 328
     aget-object v1, v1, v2
 
     if-nez v1, :cond_40
@@ -1831,7 +1997,7 @@
     :cond_40
     aput-object v1, v4, v2
 
-    .line 299
+    .line 329
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
@@ -1844,12 +2010,12 @@
 
     aput-object v1, v4, v2
 
-    .line 298
+    .line 328
     invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_14
 
-    .line 301
+    .line 331
     :cond_51
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
@@ -1863,19 +2029,19 @@
 
     return-void
 
-    .line 302
+    .line 332
     :cond_59
     :try_start_59
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
 
     move-result-object p1
 
-    .line 303
+    .line 333
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 304
+    .line 334
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -1894,7 +2060,7 @@
 
     check-cast v3, [Ljava/lang/String;
 
-    .line 305
+    .line 335
     aget-object v4, v3, v2
 
     invoke-interface {v0, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -1907,7 +2073,7 @@
 
     goto :goto_66
 
-    .line 307
+    .line 337
     :cond_7e
     new-instance p1, Ljava/util/ArrayList;
 
@@ -1917,10 +2083,10 @@
 
     invoke-direct {p1, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 308
+    .line 338
     invoke-interface {p1, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 309
+    .line 339
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -1933,13 +2099,13 @@
 
     move-result-object p1
 
-    .line 310
+    .line 340
     :cond_96
     invoke-direct {p0, p1}, Lcom/dsh/nameblock/Store;->saveNumbers(Ljava/util/List;)V
     :try_end_99
     .catchall {:try_start_59 .. :try_end_99} :catchall_9b
 
-    .line 311
+    .line 341
     monitor-exit p0
 
     return-void
@@ -1951,7 +2117,7 @@
 
     throw p1
 
-    .line 293
+    .line 323
     :cond_9e
     :goto_9e
     monitor-exit p0
@@ -1964,13 +2130,13 @@
 
     monitor-enter p0
 
-    .line 161
+    .line 171
     :try_start_1
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 162
+    .line 172
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v1, "recent"
@@ -1985,7 +2151,7 @@
 
     if-eqz v0, :cond_55
 
-    .line 163
+    .line 173
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
@@ -1997,7 +2163,7 @@
     :cond_19
     const-string v2, "\n"
 
-    .line 164
+    .line 174
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
@@ -2015,12 +2181,12 @@
 
     const-string v6, ","
 
-    .line 165
+    .line 175
     invoke-virtual {v5, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 166
+    .line 176
     array-length v6, v5
 
     const/4 v7, 0x3
@@ -2044,7 +2210,7 @@
 
     const/4 v2, 0x1
 
-    .line 168
+    .line 178
     aget-object v4, v5, v2
 
     invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -2067,7 +2233,7 @@
 
     return-object v0
 
-    .line 170
+    .line 180
     :catchall_4e
     monitor-exit p0
 
@@ -2078,13 +2244,13 @@
 
     goto :goto_22
 
-    .line 174
+    .line 184
     :cond_53
     monitor-exit p0
 
     return-object v1
 
-    .line 163
+    .line 173
     :cond_55
     :goto_55
     monitor-exit p0
@@ -2102,17 +2268,17 @@
 .method public removeKeyword(Ljava/lang/String;)V
     .registers 3
 
-    .line 239
+    .line 269
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
 
     move-result-object v0
 
-    .line 240
+    .line 270
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     const-string p1, "kw_list"
 
-    .line 241
+    .line 271
     invoke-direct {p0, p1, v0}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-void
@@ -2123,18 +2289,18 @@
 
     monitor-enter p0
 
-    .line 330
+    .line 360
     :try_start_1
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
 
     move-result-object v0
 
-    .line 331
+    .line 361
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 332
+    .line 362
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -2167,13 +2333,13 @@
 
     goto :goto_e
 
-    .line 333
+    .line 363
     :cond_27
     invoke-direct {p0, v1}, Lcom/dsh/nameblock/Store;->saveNumbers(Ljava/util/List;)V
     :try_end_2a
     .catchall {:try_start_1 .. :try_end_2a} :catchall_2c
 
-    .line 334
+    .line 364
     monitor-exit p0
 
     return-void
@@ -2189,12 +2355,12 @@
 .method public removeWhitelist(Ljava/lang/String;)V
     .registers 3
 
-    .line 116
+    .line 126
     invoke-virtual {p0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
 
     move-result-object v0
 
-    .line 117
+    .line 127
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
@@ -2203,7 +2369,7 @@
 
     const-string p1, "white_list"
 
-    .line 118
+    .line 128
     invoke-direct {p0, p1, v0}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-void
@@ -2220,7 +2386,7 @@
         }
     .end annotation
 
-    .line 132
+    .line 142
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -2276,7 +2442,7 @@
 
     const-string v0, "kw_list"
 
-    .line 226
+    .line 236
     invoke-direct {p0, v0, p1}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-void
@@ -2285,7 +2451,7 @@
 .method public setLastCall(Ljava/lang/String;Z)V
     .registers 4
 
-    .line 144
+    .line 154
     iget-object p0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -2377,18 +2543,18 @@
 
     monitor-enter p0
 
-    .line 178
+    .line 188
     :try_start_1
     invoke-static {p1}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 179
+    .line 189
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 180
+    .line 190
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 v1, 0x2c
@@ -2405,7 +2571,7 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 181
+    .line 191
     iget-object p3, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string p4, "recent"
@@ -2420,7 +2586,7 @@
 
     const-string p4, "\n"
 
-    .line 184
+    .line 194
     invoke-virtual {p3, p4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object p3
@@ -2436,7 +2602,7 @@
 
     aget-object v3, p3, v2
 
-    .line 185
+    .line 195
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
@@ -2474,7 +2640,7 @@
 
     goto :goto_68
 
-    .line 187
+    .line 197
     :cond_5e
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2488,7 +2654,7 @@
 
     goto :goto_35
 
-    .line 190
+    .line 200
     :cond_68
     :goto_68
     iget-object p1, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
@@ -2511,7 +2677,7 @@
     :try_end_7b
     .catchall {:try_start_1 .. :try_end_7b} :catchall_7d
 
-    .line 191
+    .line 201
     monitor-exit p0
 
     return-void
@@ -2535,7 +2701,7 @@
         }
     .end annotation
 
-    .line 92
+    .line 102
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v1, "white_list"
@@ -2548,7 +2714,7 @@
 
     if-nez v0, :cond_25
 
-    .line 95
+    .line 105
     iget-object v0, p0, Lcom/dsh/nameblock/Store;->sp:Landroid/content/SharedPreferences;
 
     const-string v3, "white"
@@ -2559,7 +2725,7 @@
 
     if-nez v0, :cond_1b
 
-    .line 96
+    .line 106
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -2573,13 +2739,13 @@
 
     move-object v0, v2
 
-    .line 97
+    .line 107
     :goto_21
     invoke-direct {p0, v1, v0}, Lcom/dsh/nameblock/Store;->saveList(Ljava/lang/String;Ljava/util/List;)V
 
     return-object v0
 
-    .line 100
+    .line 110
     :cond_25
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/Store;->splitLines(Ljava/lang/String;)Ljava/util/List;
 

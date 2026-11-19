@@ -3,32 +3,32 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Lcom/dsh/nameblock/CharPickerView$Listener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity$RowData;
+.field public final synthetic f$0:Landroid/widget/TextView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity$RowData;)V
+.method public synthetic constructor <init>(Landroid/widget/TextView;)V
     .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda31;->f$0:Lcom/dsh/nameblock/ListActivity$RowData;
+    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda31;->f$0:Landroid/widget/TextView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onChanged(Ljava/lang/String;)V
     .registers 2
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda31;->f$0:Lcom/dsh/nameblock/ListActivity$RowData;
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda31;->f$0:Landroid/widget/TextView;
 
-    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$bindRow$26(Lcom/dsh/nameblock/ListActivity$RowData;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$showCharPicker$35(Landroid/widget/TextView;Ljava/lang/String;)V
 
     return-void
 .end method

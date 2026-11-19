@@ -3,38 +3,32 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Lcom/dsh/nameblock/CharPickerView$Listener;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/Map;
+.field public final synthetic f$0:Landroid/widget/TextView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Map;)V
+.method public synthetic constructor <init>(Landroid/widget/TextView;)V
     .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda3;->f$0:Ljava/util/Map;
+    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda3;->f$0:Landroid/widget/TextView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+.method public final onChanged(Ljava/lang/String;)V
+    .registers 2
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda3;->f$0:Ljava/util/Map;
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda3;->f$0:Landroid/widget/TextView;
 
-    check-cast p1, Lcom/dsh/nameblock/PickerDialog$Item;
+    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$showNumberPicker$33(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    check-cast p2, Lcom/dsh/nameblock/PickerDialog$Item;
-
-    invoke-static {p0, p1, p2}, Lcom/dsh/nameblock/ListActivity;->lambda$pickContact$12(Ljava/util/Map;Lcom/dsh/nameblock/PickerDialog$Item;Lcom/dsh/nameblock/PickerDialog$Item;)I
-
-    move-result p0
-
-    return p0
+    return-void
 .end method

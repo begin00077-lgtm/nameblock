@@ -17,11 +17,19 @@
 # instance fields
 .field action:Landroid/widget/TextView;
 
+.field bottomRow:Landroid/widget/LinearLayout;
+
 .field glyph:Landroid/widget/TextView;
+
+.field rightBox:Landroid/widget/LinearLayout;
 
 .field sub:Landroid/widget/TextView;
 
+.field subAction:Landroid/widget/TextView;
+
 .field time:Landroid/widget/TextView;
+
+.field timeLow:Landroid/widget/TextView;
 
 .field title:Landroid/widget/TextView;
 
@@ -34,7 +42,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .line 1205
+    .line 1315
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

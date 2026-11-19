@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -23,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .registers 2
+.method public final run()V
+    .registers 1
 
     iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda16;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$9kUVuiKvEW0JCM7nyUzDuwNYWMI(Lcom/dsh/nameblock/ListActivity;Landroid/view/View;)V
+    invoke-static {p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$vKZkfRzS4v28c8xHarviTWopdeA(Lcom/dsh/nameblock/ListActivity;)V
 
     return-void
 .end method

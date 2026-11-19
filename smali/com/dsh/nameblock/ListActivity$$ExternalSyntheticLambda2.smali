@@ -3,32 +3,32 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/dsh/nameblock/CharPickerView$Listener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity;
+.field public final synthetic f$0:Landroid/widget/TextView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;)V
+.method public synthetic constructor <init>(Landroid/widget/TextView;)V
     .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda2;->f$0:Lcom/dsh/nameblock/ListActivity;
+    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda2;->f$0:Landroid/widget/TextView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 1
+.method public final onChanged(Ljava/lang/String;)V
+    .registers 2
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda2;->f$0:Lcom/dsh/nameblock/ListActivity;
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda2;->f$0:Landroid/widget/TextView;
 
-    invoke-static {p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$U1ram1ZG1OWAV57r-bYZ-SegWSk(Lcom/dsh/nameblock/ListActivity;)V
+    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$showNumberPicker$32(Landroid/widget/TextView;Ljava/lang/String;)V
 
     return-void
 .end method

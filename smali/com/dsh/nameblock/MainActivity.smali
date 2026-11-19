@@ -18,6 +18,8 @@
 
 .field private menuBox:Landroid/widget/LinearLayout;
 
+.field private purged:Z
+
 .field private status:Landroid/widget/TextView;
 
 .field private store:Lcom/dsh/nameblock/Store;
@@ -118,7 +120,7 @@
 
     const/4 v0, 0x0
 
-    .line 335
+    .line 348
     :try_start_1
     invoke-virtual {p0}, Lcom/dsh/nameblock/MainActivity;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -132,7 +134,7 @@
 
     if-eqz v1, :cond_18
 
-    .line 337
+    .line 350
     invoke-virtual {p0}, Lcom/dsh/nameblock/MainActivity;->getPackageName()Ljava/lang/String;
 
     move-result-object p0
@@ -157,73 +159,73 @@
 
     const/16 v0, 0x10
 
-    .line 173
+    .line 186
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/MainActivity;->dp(I)I
 
     move-result v0
 
-    .line 174
+    .line 187
     new-instance v1, Landroid/widget/ScrollView;
 
     invoke-direct {v1, p0}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 175
+    .line 188
     new-instance v2, Landroid/widget/LinearLayout;
 
     invoke-direct {v2, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v3, 0x1
 
-    .line 176
+    .line 189
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 177
+    .line 190
     invoke-virtual {v2, v0, v0, v0, v0}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 178
+    .line 191
     invoke-virtual {v1, v2}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
 
-    .line 180
+    .line 193
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     const v4, 0x7f040001
 
-    .line 181
+    .line 194
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
     const/high16 v4, 0x41c00000    # 24.0f
 
-    .line 182
+    .line 195
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 183
+    .line 196
     sget-object v4, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 184
+    .line 197
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 186
+    .line 199
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     const-string v4, "\u8bfb\u6765\u7535\u754c\u9762\u4e0a\u7684\u540d\u79f0\uff0c\u547d\u4e2d\u5173\u952e\u8bcd\u81ea\u52a8\u6302\u65ad\uff1b\u5176\u4ed6\u964c\u751f\u53f7\u7801\u4e0d\u52a8\u3002"
 
-    .line 187
+    .line 200
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v4, 0x41500000    # 13.0f
 
-    .line 188
+    .line 201
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
     const/4 v4, 0x6
 
-    .line 189
+    .line 202
     invoke-direct {p0, v4}, Lcom/dsh/nameblock/MainActivity;->dp(I)I
 
     move-result v5
@@ -238,10 +240,10 @@
 
     invoke-virtual {v0, v7, v5, v7, v6}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 190
+    .line 203
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 192
+    .line 205
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
@@ -250,65 +252,65 @@
 
     const/high16 v5, 0x41600000    # 14.0f
 
-    .line 193
+    .line 206
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 194
+    .line 207
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->status:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 196
+    .line 209
     new-instance v0, Landroid/widget/Button;
 
     invoke-direct {v0, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
     const-string v5, "\u8bbe\u4e3a\u9ed8\u8ba4\u6765\u7535\u7b5b\u9009\u5e94\u7528"
 
-    .line 197
+    .line 210
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 198
+    .line 211
     new-instance v5, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda2;
 
     invoke-direct {v5, p0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda2;-><init>(Lcom/dsh/nameblock/MainActivity;)V
 
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 199
+    .line 212
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 201
+    .line 214
     new-instance v0, Landroid/widget/Button;
 
     invoke-direct {v0, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
     const-string v5, "\u7533\u8bf7\u6743\u9650\uff08\u901a\u8bdd\u8bb0\u5f55/\u8054\u7cfb\u4eba/\u901a\u77e5\uff09"
 
-    .line 202
+    .line 215
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 203
+    .line 216
     new-instance v5, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda3;
 
     invoke-direct {v5, p0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda3;-><init>(Lcom/dsh/nameblock/MainActivity;)V
 
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 204
+    .line 217
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 206
+    .line 219
     new-instance v0, Landroid/widget/Switch;
 
     invoke-direct {v0, p0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
     const-string v5, "\u542f\u7528\u62e6\u622a\uff08\u603b\u5f00\u5173\uff09"
 
-    .line 207
+    .line 220
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
-    .line 208
+    .line 221
     iget-object v5, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v5}, Lcom/dsh/nameblock/Store;->enabled()Z
@@ -317,30 +319,30 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 209
+    .line 222
     new-instance v5, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda4;
 
     invoke-direct {v5, p0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda4;-><init>(Lcom/dsh/nameblock/MainActivity;)V
 
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 210
+    .line 223
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/MainActivity;->tintSwitch(Landroid/widget/Switch;)V
 
-    .line 211
+    .line 224
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 213
+    .line 226
     new-instance v0, Landroid/widget/Switch;
 
     invoke-direct {v0, p0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
     const-string v5, "\u6309\u540d\u79f0\u6302\u65ad\uff08\u8bfb\u6765\u7535\u754c\u9762\uff09"
 
-    .line 214
+    .line 227
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
-    .line 215
+    .line 228
     iget-object v5, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v5}, Lcom/dsh/nameblock/Store;->nameGuard()Z
@@ -349,111 +351,111 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 216
+    .line 229
     new-instance v5, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda5;
 
     invoke-direct {v5, p0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda5;-><init>(Lcom/dsh/nameblock/MainActivity;)V
 
     invoke-virtual {v0, v5}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 217
+    .line 230
     invoke-direct {p0, v0}, Lcom/dsh/nameblock/MainActivity;->tintSwitch(Landroid/widget/Switch;)V
 
-    .line 218
+    .line 231
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 220
+    .line 233
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     const-string v5, "\u603b\u5f00\u5173\u5173\u6389 = \u4ec0\u4e48\u90fd\u4e0d\u62e6\uff08\u8fde\u9ed1\u540d\u5355\u4e5f\u4e0d\u62e6\uff09\u3002\n\u6309\u540d\u79f0\u6302\u65ad\u5355\u72ec\u5173\u6389 = \u53ea\u4fdd\u7559\u9ed1\u540d\u5355\u62d2\u63a5\uff0c\u4e0d\u518d\u8bfb\u6765\u7535\u754c\u9762\u4e0a\u7684\u540d\u79f0\u3002"
 
-    .line 221
+    .line 234
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v5, 0x41400000    # 12.0f
 
-    .line 223
+    .line 236
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
-    const v6, 0x7f010005
+    const v6, 0x7f010006
 
-    .line 224
+    .line 237
     invoke-virtual {p0, v6}, Lcom/dsh/nameblock/MainActivity;->getColor(I)I
 
     move-result v6
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 225
+    .line 238
     invoke-direct {p0, v4}, Lcom/dsh/nameblock/MainActivity;->dp(I)I
 
     move-result v4
 
     invoke-virtual {v0, v7, v7, v7, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 226
+    .line 239
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 228
+    .line 241
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/dsh/nameblock/MainActivity;->accStatus:Landroid/widget/TextView;
 
-    .line 229
+    .line 242
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 230
+    .line 243
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->accStatus:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 232
+    .line 245
     new-instance v0, Landroid/widget/Button;
 
     invoke-direct {v0, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
     const-string v4, "\u6253\u5f00\u65e0\u969c\u788d\u8bbe\u7f6e"
 
-    .line 233
+    .line 246
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 234
+    .line 247
     new-instance v4, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda6;
 
     invoke-direct {v4, p0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda6;-><init>(Lcom/dsh/nameblock/MainActivity;)V
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 240
+    .line 253
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 242
+    .line 255
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     const-string v4, "\u7ba1\u7406"
 
-    .line 243
+    .line 256
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v4, 0x41700000    # 15.0f
 
-    .line 244
+    .line 257
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 245
+    .line 258
     sget-object v4, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     const/16 v4, 0x12
 
-    .line 246
+    .line 259
     invoke-direct {p0, v4}, Lcom/dsh/nameblock/MainActivity;->dp(I)I
 
     move-result v4
@@ -466,20 +468,20 @@
 
     invoke-virtual {v0, v7, v4, v7, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 247
+    .line 260
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 249
+    .line 262
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
-    .line 250
+    .line 263
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 251
+    .line 264
     iget-object p0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     invoke-virtual {v2, p0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
@@ -492,7 +494,7 @@
 
     int-to-float p1, p1
 
-    .line 421
+    .line 434
     invoke-virtual {p0}, Lcom/dsh/nameblock/MainActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
@@ -515,37 +517,37 @@
 .method private ensurePermissions(Z)V
     .registers 5
 
-    .line 361
+    .line 374
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     const-string v1, "android.permission.READ_CALL_LOG"
 
-    .line 362
+    .line 375
     invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result v2
 
     if-eqz v2, :cond_10
 
-    .line 363
+    .line 376
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_10
     const-string v1, "android.permission.READ_CONTACTS"
 
-    .line 365
+    .line 378
     invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result v2
 
     if-eqz v2, :cond_1b
 
-    .line 366
+    .line 379
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 368
+    .line 381
     :cond_1b
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -555,17 +557,17 @@
 
     const-string v1, "android.permission.POST_NOTIFICATIONS"
 
-    .line 369
+    .line 382
     invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result v2
 
     if-eqz v2, :cond_2c
 
-    .line 370
+    .line 383
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 372
+    .line 385
     :cond_2c
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -577,7 +579,7 @@
 
     return-void
 
-    .line 374
+    .line 387
     :cond_35
     new-instance p1, Landroid/app/AlertDialog$Builder;
 
@@ -585,14 +587,14 @@
 
     const-string v0, "\u6743\u9650\u72b6\u6001"
 
-    .line 375
+    .line 388
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
     const-string v0, "\u901a\u8bdd\u8bb0\u5f55 \u2713\n\u901a\u8baf\u5f55 \u2713\n\u901a\u77e5 \u2713\n\n\u4e09\u9879\u6743\u9650\u90fd\u5df2\u6388\u4e88\uff0c\u4e0d\u9700\u8981\u518d\u7533\u8bf7\u3002"
 
-    .line 376
+    .line 389
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
@@ -603,7 +605,7 @@
 
     const-string p0, "\u6253\u5f00\u5e94\u7528\u8bbe\u7f6e"
 
-    .line 377
+    .line 390
     invoke-virtual {p1, p0, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
@@ -612,12 +614,12 @@
 
     const/4 v0, 0x0
 
-    .line 378
+    .line 391
     invoke-virtual {p0, p1, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    .line 379
+    .line 392
     invoke-virtual {p0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     return-void
@@ -627,7 +629,7 @@
 
     new-array p1, p1, [Ljava/lang/String;
 
-    .line 382
+    .line 395
     invoke-interface {v0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p1
@@ -917,13 +919,17 @@
     .line 69
     invoke-static {p0, v1, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 72
     :cond_10f
-    invoke-virtual {p1, v7, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const-string v0, "dumpKw"
+
+    .line 72
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_161
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_15b
 
     .line 73
     new-instance v0, Ljava/lang/StringBuilder;
@@ -931,93 +937,171 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 74
-    iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
+    iget-object v2, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
-    invoke-virtual {v1}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_124
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_146
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v2}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
 
     move-result-object v2
 
-    check-cast v2, [Ljava/lang/String;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    aget-object v3, v2, v8
+    move-result-object v2
+
+    :goto_127
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_141
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    const/16 v4, 0x5b
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x9
+    const-string v3, "]\n"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x1
-
-    aget-object v2, v2, v3
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v2, 0xa
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto :goto_124
+    goto :goto_127
 
     .line 76
-    :cond_146
-    :try_start_146
-    new-instance v1, Ljava/io/File;
+    :cond_141
+    :try_start_141
+    new-instance v2, Ljava/io/File;
 
-    const/4 v2, 0x0
+    invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
-    invoke-virtual {p0, v2}, Lcom/dsh/nameblock/MainActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+    move-result-object v3
 
-    move-result-object v2
+    const-string v4, "keywords.txt"
 
-    const-string v3, "list.txt"
-
-    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 77
-    new-instance v2, Ljava/io/FileWriter;
+    new-instance v3, Ljava/io/FileWriter;
 
-    invoke-direct {v2, v1}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+    invoke-direct {v3, v2, v8}, Ljava/io/FileWriter;-><init>(Ljava/io/File;Z)V
 
     .line 78
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
     .line 79
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
-    :try_end_161
-    .catchall {:try_start_146 .. :try_end_161} :catchall_161
+    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    :try_end_15b
+    .catchall {:try_start_141 .. :try_end_15b} :catchall_15b
 
-    :catchall_161
-    :cond_161
-    const-string v0, "mode"
+    .line 82
+    :catchall_15b
+    :cond_15b
+    invoke-virtual {p1, v7, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1ac
 
     .line 83
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 84
+    iget-object v2, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
+
+    invoke-virtual {v2}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_170
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_192
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [Ljava/lang/String;
+
+    aget-object v4, v3, v8
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v4, 0x9
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const/4 v4, 0x1
+
+    aget-object v3, v3, v4
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v3, 0xa
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_170
+
+    .line 86
+    :cond_192
+    :try_start_192
+    new-instance v2, Ljava/io/File;
+
+    invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v1
+
+    const-string v3, "list.txt"
+
+    invoke-direct {v2, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 87
+    new-instance v1, Ljava/io/FileWriter;
+
+    invoke-direct {v1, v2}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+
+    .line 88
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+
+    .line 89
+    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    :try_end_1ac
+    .catchall {:try_start_192 .. :try_end_1ac} :catchall_1ac
+
+    :catchall_1ac
+    :cond_1ac
+    const-string v0, "mode"
+
+    .line 93
     invoke-virtual {p1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_172
+    if-eqz v1, :cond_1bd
 
-    .line 84
+    .line 94
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -1026,17 +1110,17 @@
 
     invoke-virtual {v1, v0}, Lcom/dsh/nameblock/Store;->setMode(I)V
 
-    :cond_172
+    :cond_1bd
     const-string v0, "addWhite"
 
-    .line 86
+    .line 96
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_18d
+    if-eqz v0, :cond_1d8
 
-    .line 87
+    .line 97
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -1045,7 +1129,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18d
+    if-nez v1, :cond_1d8
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
@@ -1055,17 +1139,17 @@
 
     invoke-virtual {v1, v0}, Lcom/dsh/nameblock/Store;->addWhitelist(Ljava/lang/String;)V
 
-    :cond_18d
+    :cond_1d8
     const-string v0, "removeWhite"
 
-    .line 88
+    .line 98
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1fc
+    if-eqz v0, :cond_247
 
-    .line 89
+    .line 99
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -1074,9 +1158,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1fc
+    if-nez v1, :cond_247
 
-    .line 90
+    .line 100
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -1111,7 +1195,7 @@
 
     invoke-static {p0, v2, v1}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 91
+    .line 101
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -1120,7 +1204,7 @@
 
     invoke-virtual {v1, v0}, Lcom/dsh/nameblock/Store;->removeWhitelist(Ljava/lang/String;)V
 
-    .line 92
+    .line 102
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
@@ -1161,17 +1245,17 @@
 
     invoke-static {p0, v2, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1fc
+    :cond_247
     const-string v0, "dumpWhite"
 
-    .line 94
+    .line 104
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_213
+    if-eqz v0, :cond_25e
 
-    .line 95
+    .line 105
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
@@ -1186,17 +1270,17 @@
 
     invoke-static {p0, v1, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_213
+    :cond_25e
     const-string v0, "clearWhite"
 
-    .line 97
+    .line 107
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_254
+    if-eqz v0, :cond_29f
 
-    .line 98
+    .line 108
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
@@ -1207,12 +1291,12 @@
 
     move-result-object v0
 
-    :goto_225
+    :goto_270
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_237
+    if-eqz v1, :cond_282
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1224,10 +1308,10 @@
 
     invoke-virtual {v2, v1}, Lcom/dsh/nameblock/Store;->removeWhitelist(Ljava/lang/String;)V
 
-    goto :goto_225
+    goto :goto_270
 
-    .line 99
-    :cond_237
+    .line 109
+    :cond_282
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {v0}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
@@ -1254,17 +1338,17 @@
 
     invoke-static {p0, v1, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_254
+    :cond_29f
     const-string v0, "addKeyword"
 
-    .line 101
+    .line 111
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_26f
+    if-eqz v0, :cond_2ba
 
-    .line 102
+    .line 112
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -1273,7 +1357,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_26f
+    if-nez v1, :cond_2ba
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
@@ -1283,17 +1367,17 @@
 
     invoke-virtual {v1, v0}, Lcom/dsh/nameblock/Store;->addKeyword(Ljava/lang/String;)V
 
-    :cond_26f
+    :cond_2ba
     const-string v0, "removeKeyword"
 
-    .line 103
+    .line 113
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_28a
+    if-eqz v0, :cond_2d5
 
-    .line 104
+    .line 114
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
@@ -1302,7 +1386,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_28a
+    if-nez v1, :cond_2d5
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
@@ -1312,15 +1396,15 @@
 
     invoke-virtual {v1, v0}, Lcom/dsh/nameblock/Store;->removeKeyword(Ljava/lang/String;)V
 
-    :cond_28a
+    :cond_2d5
     const-string v0, "testNotify"
 
-    .line 105
+    .line 115
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_29b
+    if-eqz v0, :cond_2e6
 
     const-string v0, "\u5317\u4eac\u660e\u4f26\u542f\u6b63\u6587\u5316\u4f20\u5a92\u6709\u9650\u516c\u53f8"
 
@@ -1328,27 +1412,27 @@
 
     const-string v2, "0431 8292 3577"
 
-    .line 106
+    .line 116
     invoke-static {p0, v2, v0, v1}, Lcom/dsh/nameblock/Notifier;->blocked(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_29b
+    :cond_2e6
     const-string v0, "page"
 
-    .line 108
+    .line 118
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2b9
+    if-eqz v0, :cond_304
 
-    .line 109
+    .line 119
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_2b9
+    if-nez v1, :cond_304
 
-    .line 110
+    .line 120
     new-instance v1, Landroid/content/Intent;
 
     const-class v2, Lcom/dsh/nameblock/ListActivity;
@@ -1357,34 +1441,34 @@
 
     const-string v2, "kind"
 
-    .line 111
+    .line 121
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 110
+    .line 120
     invoke-virtual {p0, v0}, Lcom/dsh/nameblock/MainActivity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_2b9
+    :cond_304
     const-string v0, "scan"
 
-    .line 113
+    .line 123
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2d7
+    if-eqz p1, :cond_322
 
     const-string p1, "\u6b63\u5728\u626b\u63cf\u901a\u8bdd\u8bb0\u5f55\u2026"
 
-    .line 114
+    .line 124
     invoke-static {p0, p1, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p1
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 115
+    .line 125
     new-instance p1, Ljava/lang/Thread;
 
     new-instance v0, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda0;
@@ -1393,11 +1477,11 @@
 
     invoke-direct {p1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 122
+    .line 132
     invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
-    .line 124
-    :cond_2d7
+    .line 134
+    :cond_322
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
     return-void
@@ -1406,7 +1490,7 @@
 .method private isRoleHeld()Z
     .registers 2
 
-    .line 329
+    .line 342
     const-class v0, Landroid/app/role/RoleManager;
 
     invoke-virtual {p0, v0}, Lcom/dsh/nameblock/MainActivity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -1419,7 +1503,7 @@
 
     const-string v0, "android.app.role.CALL_SCREENING"
 
-    .line 330
+    .line 343
     invoke-virtual {p0, v0}, Landroid/app/role/RoleManager;->isRoleHeld(Ljava/lang/String;)Z
 
     move-result p0
@@ -1440,7 +1524,7 @@
 .method private synthetic lambda$buildUi$3(Landroid/view/View;)V
     .registers 2
 
-    .line 198
+    .line 211
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->requestRole()V
 
     return-void
@@ -1451,7 +1535,7 @@
 
     const/4 p1, 0x1
 
-    .line 203
+    .line 216
     invoke-direct {p0, p1}, Lcom/dsh/nameblock/MainActivity;->ensurePermissions(Z)V
 
     return-void
@@ -1460,7 +1544,7 @@
 .method private synthetic lambda$buildUi$5(Landroid/widget/CompoundButton;Z)V
     .registers 3
 
-    .line 209
+    .line 222
     iget-object p0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {p0, p2}, Lcom/dsh/nameblock/Store;->setEnabled(Z)V
@@ -1471,7 +1555,7 @@
 .method private synthetic lambda$buildUi$6(Landroid/widget/CompoundButton;Z)V
     .registers 3
 
-    .line 216
+    .line 229
     iget-object p0, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
     invoke-virtual {p0, p2}, Lcom/dsh/nameblock/Store;->setNameGuard(Z)V
@@ -1482,7 +1566,7 @@
 .method private synthetic lambda$buildUi$7(Landroid/view/View;)V
     .registers 3
 
-    .line 236
+    .line 249
     :try_start_0
     new-instance p1, Landroid/content/Intent;
 
@@ -1501,7 +1585,7 @@
 .method private synthetic lambda$ensurePermissions$9(Landroid/content/DialogInterface;I)V
     .registers 3
 
-    .line 377
+    .line 390
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->openAppSettings()V
 
     return-void
@@ -1510,10 +1594,10 @@
 .method private synthetic lambda$handleIntent$0(Lcom/dsh/nameblock/Scanner$Result;)V
     .registers 5
 
-    .line 118
+    .line 128
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
-    .line 119
+    .line 129
     iget-object v0, p1, Lcom/dsh/nameblock/Scanner$Result;->error:Ljava/lang/String;
 
     if-eqz v0, :cond_18
@@ -1534,7 +1618,7 @@
 
     goto :goto_37
 
-    .line 120
+    .line 130
     :cond_18
     iget v0, p1, Lcom/dsh/nameblock/Scanner$Result;->scanned:I
 
@@ -1565,12 +1649,12 @@
     :goto_37
     const/4 v0, 0x1
 
-    .line 119
+    .line 129
     invoke-static {p0, p1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
 
-    .line 120
+    .line 130
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
     return-void
@@ -1581,12 +1665,12 @@
 
     const/4 v0, 0x1
 
-    .line 116
+    .line 126
     invoke-static {p0, v0}, Lcom/dsh/nameblock/Scanner;->scan(Landroid/content/Context;Z)Lcom/dsh/nameblock/Scanner$Result;
 
     move-result-object v0
 
-    .line 117
+    .line 127
     new-instance v1, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda9;
 
     invoke-direct {v1, p0, v0}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda9;-><init>(Lcom/dsh/nameblock/MainActivity;Lcom/dsh/nameblock/Scanner$Result;)V
@@ -1599,7 +1683,7 @@
 .method private synthetic lambda$menuRow$8(Ljava/lang/String;Landroid/view/View;)V
     .registers 4
 
-    .line 285
+    .line 298
     new-instance p2, Landroid/content/Intent;
 
     const-class v0, Lcom/dsh/nameblock/ListActivity;
@@ -1608,12 +1692,12 @@
 
     const-string v0, "kind"
 
-    .line 286
+    .line 299
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
 
-    .line 285
+    .line 298
     invoke-virtual {p0, p1}, Lcom/dsh/nameblock/MainActivity;->startActivity(Landroid/content/Intent;)V
 
     return-void
@@ -1622,12 +1706,12 @@
 .method private synthetic lambda$registerDataReceiver$2()V
     .registers 7
 
-    .line 133
+    .line 145
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 134
+    .line 146
     iget-wide v2, p0, Lcom/dsh/nameblock/MainActivity;->lastDataRefresh:J
 
     sub-long v2, v0, v2
@@ -1640,11 +1724,11 @@
 
     return-void
 
-    .line 135
+    .line 147
     :cond_f
     iput-wide v0, p0, Lcom/dsh/nameblock/MainActivity;->lastDataRefresh:J
 
-    .line 136
+    .line 148
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
     return-void
@@ -1653,24 +1737,24 @@
 .method private menuRow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/view/View;
     .registers 11
 
-    .line 257
+    .line 270
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v1, 0x0
 
-    .line 258
+    .line 271
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     const/16 v2, 0x10
 
-    .line 259
+    .line 272
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
 
     const/16 v2, 0xe
 
-    .line 260
+    .line 273
     invoke-direct {p0, v2}, Lcom/dsh/nameblock/MainActivity;->dp(I)I
 
     move-result v3
@@ -1681,17 +1765,17 @@
 
     invoke-virtual {v0, v1, v3, v1, v2}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 262
+    .line 275
     new-instance v2, Landroid/widget/LinearLayout;
 
     invoke-direct {v2, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     const/4 v3, 0x1
 
-    .line 263
+    .line 276
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 264
+    .line 277
     new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v5, -0x2
@@ -1702,99 +1786,99 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 266
+    .line 279
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 267
+    .line 280
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 p1, 0x41800000    # 16.0f
 
-    .line 268
+    .line 281
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 269
+    .line 282
     invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 271
+    .line 284
     new-instance p1, Landroid/widget/TextView;
 
     invoke-direct {p1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 272
+    .line 285
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 p2, 0x41400000    # 12.0f
 
-    .line 273
+    .line 286
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextSize(F)V
 
-    const p2, 0x7f010005
+    const p2, 0x7f010006
 
-    .line 274
+    .line 287
     invoke-virtual {p0, p2}, Lcom/dsh/nameblock/MainActivity;->getColor(I)I
 
     move-result v1
 
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 275
+    .line 288
     invoke-virtual {v2, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 277
+    .line 290
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 279
+    .line 292
     new-instance p1, Landroid/widget/TextView;
 
     invoke-direct {p1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     const-string v1, "\u203a"
 
-    .line 280
+    .line 293
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/high16 v1, 0x41b00000    # 22.0f
 
-    .line 281
+    .line 294
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 282
+    .line 295
     invoke-virtual {p0, p2}, Lcom/dsh/nameblock/MainActivity;->getColor(I)I
 
     move-result p2
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 283
+    .line 296
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 285
+    .line 298
     new-instance p1, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda1;
 
     invoke-direct {p1, p0, p3}, Lcom/dsh/nameblock/MainActivity$$ExternalSyntheticLambda1;-><init>(Lcom/dsh/nameblock/MainActivity;Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 288
+    .line 301
     new-instance p1, Landroid/widget/LinearLayout;
 
     invoke-direct {p1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 289
+    .line 302
     invoke-virtual {p1, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 290
+    .line 303
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 291
+    .line 304
     new-instance p2, Landroid/view/View;
 
     invoke-direct {p2, p0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 292
+    .line 305
     new-instance p3, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v0, -0x1
@@ -1807,16 +1891,16 @@
 
     invoke-virtual {p2, p3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const p3, 0x7f010002
+    const p3, 0x7f010003
 
-    .line 293
+    .line 306
     invoke-virtual {p0, p3}, Lcom/dsh/nameblock/MainActivity;->getColor(I)I
 
     move-result p0
 
     invoke-virtual {p2, p0}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 294
+    .line 307
     invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     return-object p1
@@ -1827,13 +1911,13 @@
 
     const-string v0, "package:"
 
-    .line 387
+    .line 400
     :try_start_2
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.settings.APPLICATION_DETAILS_SETTINGS"
 
-    .line 388
+    .line 401
     invoke-virtual {p0}, Lcom/dsh/nameblock/MainActivity;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -1854,7 +1938,7 @@
 
     invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 387
+    .line 400
     invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->startActivity(Landroid/content/Intent;)V
     :try_end_20
     .catchall {:try_start_2 .. :try_end_20} :catchall_21
@@ -1864,7 +1948,7 @@
     :catchall_21
     move-exception v0
 
-    .line 390
+    .line 403
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -1896,14 +1980,14 @@
 .method private refresh()V
     .registers 7
 
-    .line 299
+    .line 312
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->status:Landroid/widget/TextView;
 
     if-nez v0, :cond_5
 
     return-void
 
-    .line 300
+    .line 313
     :cond_5
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->isRoleHeld()Z
 
@@ -1911,7 +1995,7 @@
 
     const-string v1, "android.permission.READ_CALL_LOG"
 
-    .line 301
+    .line 314
     invoke-virtual {p0, v1}, Lcom/dsh/nameblock/MainActivity;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result v1
@@ -1932,7 +2016,7 @@
     :goto_16
     const-string v4, "android.permission.POST_NOTIFICATIONS"
 
-    .line 302
+    .line 315
     invoke-virtual {p0, v4}, Lcom/dsh/nameblock/MainActivity;->checkSelfPermission(Ljava/lang/String;)I
 
     move-result v4
@@ -1944,7 +2028,7 @@
     :cond_1f
     move v2, v3
 
-    .line 303
+    .line 316
     :goto_20
     iget-object v3, p0, Lcom/dsh/nameblock/MainActivity;->status:Landroid/widget/TextView;
 
@@ -1979,7 +2063,7 @@
     :cond_35
     move-object v4, v5
 
-    .line 305
+    .line 318
     :goto_36
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2005,15 +2089,15 @@
 
     move-result-object v0
 
-    .line 303
+    .line 316
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 306
+    .line 319
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->accStatus:Landroid/widget/TextView;
 
     if-eqz v0, :cond_6f
 
-    .line 307
+    .line 320
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->accEnabled()Z
 
     move-result v1
@@ -2036,21 +2120,21 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 310
+    .line 323
     :cond_6f
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_138
 
-    .line 311
+    .line 324
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->removeAllViews()V
 
-    .line 312
+    .line 325
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
-    .line 313
+    .line 326
     invoke-virtual {v1}, Lcom/dsh/nameblock/Store;->keywords()Ljava/util/List;
 
     move-result-object v1
@@ -2079,19 +2163,19 @@
 
     const-string v4, "\u540d\u79f0\u5173\u952e\u8bcd"
 
-    .line 312
+    .line 325
     invoke-direct {p0, v4, v1, v2}, Lcom/dsh/nameblock/MainActivity;->menuRow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 314
+    .line 327
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
-    .line 315
+    .line 328
     invoke-virtual {v1}, Lcom/dsh/nameblock/Store;->logs()Ljava/util/List;
 
     move-result-object v1
@@ -2120,14 +2204,14 @@
 
     const-string v4, "\u62e6\u622a\u8bb0\u5f55"
 
-    .line 314
+    .line 327
     invoke-direct {p0, v4, v1, v2}, Lcom/dsh/nameblock/MainActivity;->menuRow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 316
+    .line 329
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     const-string v1, "\u4ece\u901a\u8bdd\u8bb0\u5f55\u6311\u540d\u79f0\uff0c\u6dfb\u52a0\u5173\u952e\u8bcd"
@@ -2142,12 +2226,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 318
+    .line 331
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
-    .line 319
+    .line 332
     invoke-virtual {v1}, Lcom/dsh/nameblock/Store;->whitelist()Ljava/util/List;
 
     move-result-object v1
@@ -2174,19 +2258,19 @@
 
     const-string v4, "\u767d\u540d\u5355"
 
-    .line 318
+    .line 331
     invoke-direct {p0, v4, v1, v2}, Lcom/dsh/nameblock/MainActivity;->menuRow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 320
+    .line 333
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->store:Lcom/dsh/nameblock/Store;
 
-    .line 321
+    .line 334
     invoke-virtual {v1}, Lcom/dsh/nameblock/Store;->numbers()Ljava/util/List;
 
     move-result-object v1
@@ -2213,14 +2297,14 @@
 
     const-string v3, "\u9ed1\u540d\u5355"
 
-    .line 320
+    .line 333
     invoke-direct {p0, v3, v1, v2}, Lcom/dsh/nameblock/MainActivity;->menuRow(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 322
+    .line 335
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->menuBox:Landroid/widget/LinearLayout;
 
     const-string v1, "\u6700\u8fd1\u6765\u7535\u7684\u5224\u5b9a\u8fc7\u7a0b"
@@ -2242,14 +2326,14 @@
 .method private registerDataReceiver()V
     .registers 4
 
-    .line 131
+    .line 143
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_5
 
     return-void
 
-    .line 132
+    .line 144
     :cond_5
     new-instance v0, Lcom/dsh/nameblock/DataChangeReceiver;
 
@@ -2261,14 +2345,14 @@
 
     iput-object v0, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 138
+    .line 150
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "com.dsh.nameblock.DATA_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 140
+    .line 152
     :try_start_18
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -2276,7 +2360,7 @@
 
     if-lt v1, v2, :cond_25
 
-    .line 141
+    .line 153
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
     const/4 v2, 0x4
@@ -2285,7 +2369,7 @@
 
     goto :goto_2e
 
-    .line 143
+    .line 155
     :cond_25
     iget-object v1, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
@@ -2298,7 +2382,7 @@
     :catchall_2b
     const/4 v0, 0x0
 
-    .line 146
+    .line 158
     iput-object v0, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
     :goto_2e
@@ -2308,7 +2392,7 @@
 .method private requestRole()V
     .registers 5
 
-    .line 344
+    .line 357
     const-class v0, Landroid/app/role/RoleManager;
 
     invoke-virtual {p0, v0}, Lcom/dsh/nameblock/MainActivity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -2323,7 +2407,7 @@
 
     const-string v0, "\u6b64\u7cfb\u7edf\u4e0d\u652f\u6301\u6765\u7535\u7b5b\u9009\u89d2\u8272"
 
-    .line 346
+    .line 359
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
@@ -2335,7 +2419,7 @@
     :cond_15
     const-string v2, "android.app.role.CALL_SCREENING"
 
-    .line 349
+    .line 362
     invoke-virtual {v0, v2}, Landroid/app/role/RoleManager;->isRoleHeld(Ljava/lang/String;)Z
 
     move-result v3
@@ -2346,7 +2430,7 @@
 
     const/4 v1, 0x0
 
-    .line 350
+    .line 363
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
@@ -2355,7 +2439,7 @@
 
     return-void
 
-    .line 354
+    .line 367
     :cond_28
     :try_start_28
     invoke-virtual {v0, v2}, Landroid/app/role/RoleManager;->createRequestRoleIntent(Ljava/lang/String;)Landroid/content/Intent;
@@ -2373,7 +2457,7 @@
     :catchall_32
     move-exception v0
 
-    .line 356
+    .line 369
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -2405,7 +2489,7 @@
 
     const p0, 0x10100a0
 
-    .line 413
+    .line 426
     filled-new-array {p0}, [I
 
     move-result-object p0
@@ -2418,7 +2502,7 @@
 
     move-result-object p0
 
-    .line 414
+    .line 427
     new-instance v0, Landroid/content/res/ColorStateList;
 
     const v1, -0xcb38a7
@@ -2433,7 +2517,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Switch;->setThumbTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 416
+    .line 429
     new-instance v0, Landroid/content/res/ColorStateList;
 
     const v1, -0x992276
@@ -2456,10 +2540,10 @@
 .method protected onActivityResult(IILandroid/content/Intent;)V
     .registers 4
 
-    .line 408
+    .line 421
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 409
+    .line 422
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
     return-void
@@ -2518,15 +2602,15 @@
 .method protected onPause()V
     .registers 2
 
-    .line 160
+    .line 173
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 161
+    .line 174
     iget-object v0, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_d
 
-    .line 163
+    .line 176
     :try_start_7
     invoke-virtual {p0, v0}, Lcom/dsh/nameblock/MainActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_a
@@ -2535,7 +2619,7 @@
     :catchall_a
     const/4 v0, 0x0
 
-    .line 166
+    .line 179
     iput-object v0, p0, Lcom/dsh/nameblock/MainActivity;->dataReceiver:Landroid/content/BroadcastReceiver;
 
     :cond_d
@@ -2545,17 +2629,17 @@
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .registers 7
 
-    .line 396
+    .line 409
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 397
+    .line 410
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
     const/16 p2, 0xb
 
     if-ne p1, p2, :cond_26
 
-    .line 400
+    .line 413
     array-length p1, p3
 
     const/4 p2, 0x0
@@ -2588,13 +2672,13 @@
     :cond_1d
     const-string p1, "\u6743\u9650\u5df2\u6388\u4e88"
 
-    .line 401
+    .line 414
     :goto_1f
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p0
 
-    .line 402
+    .line 415
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
     :cond_26
@@ -2604,16 +2688,16 @@
 .method protected onResume()V
     .registers 1
 
-    .line 152
+    .line 164
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 153
+    .line 165
     invoke-static {p0}, Lcom/dsh/nameblock/Keeper;->ensure(Landroid/content/Context;)V
 
-    .line 154
+    .line 166
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->registerDataReceiver()V
 
-    .line 155
+    .line 167
     invoke-direct {p0}, Lcom/dsh/nameblock/MainActivity;->refresh()V
 
     return-void

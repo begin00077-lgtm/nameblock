@@ -17,15 +17,17 @@
 # static fields
 .field public static final accent_text:I = 0x7f010000
 
-.field public static final bg:I = 0x7f010001
+.field public static final accent_warm:I = 0x7f010001
 
-.field public static final divider:I = 0x7f010002
+.field public static final bg:I = 0x7f010002
 
-.field public static final ic_launcher_background:I = 0x7f010003
+.field public static final divider:I = 0x7f010003
 
-.field public static final text_primary:I = 0x7f010004
+.field public static final ic_launcher_background:I = 0x7f010004
 
-.field public static final text_secondary:I = 0x7f010005
+.field public static final text_primary:I = 0x7f010005
+
+.field public static final text_secondary:I = 0x7f010006
 
 
 # direct methods

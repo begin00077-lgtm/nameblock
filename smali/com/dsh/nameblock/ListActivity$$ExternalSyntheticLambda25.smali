@@ -3,32 +3,38 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/dsh/nameblock/CharPickerView$Listener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/widget/TextView;
+.field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity;
+
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/widget/TextView;)V
-    .registers 2
+.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;)V
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$0:Landroid/widget/TextView;
+    iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$0:Lcom/dsh/nameblock/ListActivity;
+
+    iput-object p2, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onChanged(Ljava/lang/String;)V
+.method public final run()V
     .registers 2
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$0:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$showCharPicker$27(Landroid/widget/TextView;Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda25;->f$1:Ljava/lang/String;
+
+    invoke-static {v0, p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$V_iqusO5lWKccs8okMYuLgpuZSE(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;)V
 
     return-void
 .end method

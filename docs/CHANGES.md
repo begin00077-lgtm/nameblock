@@ -1,139 +1,114 @@
 # 改动明细
 
-基线：`apk/original-base.apk`（2026-11-03 从手机拉取的原始包，v1.0）。
-产物：`apk/nameblock-v8.apk`。
+基线：`apk/original-base.apk`
+最新产物：`apk/nameblock-v9.apk`
 
 所有改动都在 smali 层完成，未触碰资源与 AndroidManifest。
 
 ---
 
-## 1. 黑名单改为前缀匹配
+## v9（2026-11-19）— 稳定性修复
 
-`com/dsh/nameblock/Store.smali` — `isBlockedNumber(Ljava/lang/String;)Z`
+### 1. `Keeper.ensure()` 不再清空其他人的无障碍服务
 
-原始（保留数字归一化后的精确比较）：
+`com/dsh/nameblock/Keeper.smali`
 
-```smali
-invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-```
-
-修改后（**来电号码** 以 **黑名单项** 开头即命中）：
+重绑流程原本是「先清空整行 → 500ms 后再写回自己」，这会**禁用掉所有其他 App 的无障碍服务**（实测踢掉了 `com.dsh.dakacheck`）。
 
 ```smali
-invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+# 修改前
+invoke-static {v6, v2, v7}, Settings$Secure;->putString(...)   # v7 = ""
+
+# 修改后：读出当前值，只移除自己的条目，其余原样保留
+getString(cr, "enabled_accessibility_services") -> v13
+if v13 startsWith "<me>:"  -> v13 = v13.substring(("<me>:").length())
+elif v13 equals "<me>"     -> v13 = ""
+putString(cr, key, v13)
 ```
 
-调换了参数顺序：`p1` 是归一化后的来电号码，`v2` 是黑名单中的条目。
+### 2. `Keeper$1.run()` 恢复时不再硬覆盖
 
-效果：黑名单里填 `18609`，`18609141451` / `18609999999` 都会被拒接。
+`com/dsh/nameblock/Keeper$1.smali`
+
+原本延迟 500ms 后把整行替换成只有自己：
+
+```smali
+const-string v3, "com.dsh.nameblock/com.dsh.nameblock.NameGuardService"
+putString(cr, "enabled_accessibility_services", v3)   # 覆盖，其他人被踢
+```
+
+改为「读出 → 已包含自己就不动 → 未包含则用 `:` 追加」。
+
+### 3. `[perf]` 诊断日志节流
+
+`com/dsh/nameblock/ListActivity.smali`
+
+`callLogNames()` 里的性能日志在页面频繁刷新时每 5 秒写一条，会把 128 KB 的
+`diag.log` 刷爆（`Diag.write()` 超限时整个删除），导致真正的来电记录丢失。
+
+新增静态字段 `lastPerfLog:J`，60 秒内只写一次：
+
+```smali
+invoke-static {}, System->currentTimeMillis()
+sget-wide v14, ListActivity->lastPerfLog:J
+sub-long v14, ...
+const-wide/32 v16, 0xea60      # 60000ms
+if-gez v14, :skip_perf_log
+```
+
+页面 5 秒轮询、标记变化检测、界面刷新逻辑**均未改动**，只减少日志写入。
 
 ---
 
-## 2. 号码也参与关键词匹配
+## v8（2026-11-03）— 拦截能力增强
 
-`com/dsh/nameblock/Store.smali` — `isBlockedNumber` 尾部（黑名单未命中时）
+### 1. 黑名单改为前缀匹配
 
-```smali
-:cond_2d
-invoke-virtual {p0, p1}, Lcom/dsh/nameblock/Store;->matchKeyword(Ljava/lang/String;)Ljava/lang/String;
-move-result-object v2
-if-eqz v2, :cond_2d_nokw
-monitor-exit p0
-const/4 p0, 0x1
-return p0
-:cond_2d_nokw
-monitor-exit p0
-return v1
+⚠️ **注意**：本节描述的是 v8 的设计意图，但**在真机安装包中并未生效**——`isBlockedNumber` 实际仍为 `equals` 精确匹配。v9 保持与安装包一致，未改动此处。详见 `APP-LOGIC.md`。
+
+### 2. 号码也参与关键词匹配
+
+同上，真机版本中 `isBlockedNumber` 没有号码关键词分支。
+
+### 3. 拦截成功后自动学习到黑名单
+
+`ScreeningService.onScreenCall` 在「已在拦截名单」分支调用 `putNumber`。
+
+### 4. 同步通话记录页：黄页名也能「加关键词」
+
+- 按钮可见性：显示名为空但有黄页文字时，也允许「加关键词」
+- 挑字内容：三级回退 `displayNameOf(号码)` → `entry.name` → `keywordTag(号码)`
+
+### 5. `identify_name` 双格式兼容
+
+`Marks.flagOf()` 与 `ListActivity.flagOf()`：
+
+```
+{"phoneFlag":"11111"}              ← 手动标记
+{"name":"宜宾渔朵酒业有限责任公司"}   ← 黄页标记
 ```
 
-原实现此处直接 `return 0`。新增后，号码本身包含关键词同样视为命中。
-
-配合 `matchKeyword()` 内部已有的 `contains` 逻辑，`18609` 能命中
-`18609141451`（开头）和 `13818609123`（中间）。
+原本只读 `phoneFlag`，黄页类标记一律读不到，导致「酒业」等关键词永远匹配不上。
 
 ---
 
-## 3. 拦截成功后自动学习到黑名单
-
-`com/dsh/nameblock/ScreeningService.smali` — `onScreenCall`
-
-原实现只在「名称命中关键词」分支里调用 `putNumber`。新增在「已在拦截名单」分支：
-
-```smali
-const-string v0, "\u5df2\u5728\u62e6\u622a\u540d\u5355"   # 已在拦截名单
-invoke-virtual {v7, v9, v5}, Lcom/dsh/nameblock/Store;->putNumber(Ljava/lang/String;Ljava/lang/String;)V
-move v7, v4
-goto :goto_ee
-```
-
-`v7` = Store，`v9` = 归一化号码，`v5` = 来电显示名（可为 null，`putNumber` 内部处理）。
-
----
-
-## 4. 同步通话记录页：黄页名也能「加关键词」
-
-### 4.1 按钮可见性
-
-`com/dsh/nameblock/ListActivity.smali` — `showSyncRows()`
-
-原逻辑：来电**显示名**为空（`v12 != 0`）时直接显示「无名称」，按钮不可用，
-即使通话记录里带着黄页/标记名。
-
-```smali
-:cond_105
-if-nez v12, :cond_10c                     # 有显示名 → 正常「加关键词」
-invoke-virtual {v11}, Ljava/lang/String;->length()I
-move-result v12
-if-eqz v12, :cond_10c                     # 有黄页/标记文字 → 也允许「加关键词」
-const-string v6, "\u65e0\u540d\u79f0"
-iput-object v6, v8, Lcom/dsh/nameblock/ListActivity$RowData;->actionLabel:Ljava/lang/String;
-goto :goto_120
-```
-
-`v11` 是 `keywordTag(号码)` 或 `cleanName(entry.name)` 的结果。
-
-### 4.2 挑字内容
-
-`com/dsh/nameblock/ListActivity.smali` — `showCharPicker(CallEntry)`
-
-原实现只把 `entry.name` 传给 `CharPickerView`，通话记录 `name` 列为空时
-界面上只有号码，无法选出「比亚迪」这类黄页汉字。
-
-改为三级回退（`.registers` 由 7 提到 8）：
-
-```smali
-iget-object v5, p1, Lcom/dsh/nameblock/Scanner$CallEntry;->name:Ljava/lang/String;
-iget-object v4, p1, Lcom/dsh/nameblock/Scanner$CallEntry;->number:Ljava/lang/String;
-invoke-direct {p0, v4}, Lcom/dsh/nameblock/ListActivity;->displayNameOf(Ljava/lang/String;)Ljava/lang/String;
-move-result-object v4
-# 1) displayNameOf 非空 → 用
-# 2) 否则用 entry.name（若非空）
-# 3) 否则用 keywordTag(号码) —— 黄页/标记名
-# 最后 null 兜底为 ""
-invoke-static {p0, v3, v4}, Lcom/dsh/nameblock/Diag;->log(...)   # tag = "picker"
-new-instance v2, Lcom/dsh/nameblock/CharPickerView;
-invoke-direct {v2, p0, v4, v3}, Lcom/dsh/nameblock/CharPickerView;-><init>(...)V
-```
-
-实测日志：`[picker] 比亚迪海洋网(渭南奥通4S店)`。
-
----
-
-## 排错记录
+## v9 排错记录
 
 | 现象 | 原因 | 处理 |
 | --- | --- | --- |
-| `VerifyError: expected 2 argument registers, method signature has 3` | `Diag.log` 是三参数，漏传 tag | 补 `const-string v3, "picker"` |
-| `VerifyError: type Conflict unexpected as arg to if-eqz` | 在 `showSyncRows` 里用未初始化的 `v9` 当临时寄存器 | 改用 int 型 `v12` 承载 `length()` 结果 |
-| 同步页按钮变成「无名称」 | 分支条件写反（`if-eqz` / `if-nez`） | 改为 `if-nez v12`，显示名为空时再检查黄页文字 |
-| App 启动即崩 | 上一行的寄存器/条件错误导致整个类校验失败 | 同上，修复后正常 |
+| 清理后台后打卡 App 无障碍被禁用 | `Keeper$1` 硬覆盖整行设置 | 改为读-判-追加 |
+| 同上，另一处 | `Keeper.ensure` 拔插前清空整行 | 改为只移除自己 |
+| 重绑时无障碍反复解绑重绑 | 写入设置触发系统重绑，`connected` 状态震荡 | 收敛后自行停止 |
+| `diag.log` 很快被清空 | 每 5 秒一条 perf 日志撑满 128 KB | 节流到 60 秒 |
+| APK 装不上：`requires resources.arsc ... uncompressed` | 重打包时压缩了 arsc | 用 `repack_tools.py` 保留原压缩方式 |
 
 ## 校验
 
 ```bash
-java -cp "cls;apksig.jar" Verify apk/nameblock-v8.apk
-# verified=true  v1=false v2=false v3=true
+apksigner verify --print-certs apk/nameblock-v9.apk
+# Verified using v3 scheme: true
+# Signer #1 certificate SHA-256: 07:dd:7d:12:...:ce
 ```
 
-- `apk/classes-patched.dex` SHA-256：`06B8D3E02577443D3716E5D6ECD9D994BB9BF3989C7F0A449863BC97DC9C42E0`
-- `apk/nameblock-v8.apk` SHA-256：`2276B12644D06A8349E95A4ECBF6C79268D6217156D95B3B5D07F216F63FD930`
+- `apk/classes-patched.dex`：106 个类 / 902 个方法 / 284 个字段，与基线一致
+- `apk/installed-verification.apk` 与 `apk/nameblock-v9.apk` 哈希相同（从手机拉回验证）

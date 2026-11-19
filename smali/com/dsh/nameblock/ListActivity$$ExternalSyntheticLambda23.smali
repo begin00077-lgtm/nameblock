@@ -9,18 +9,14 @@
 # instance fields
 .field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity;
 
-.field public final synthetic f$1:Ljava/lang/String;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;)V
-    .registers 3
+.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;)V
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda23;->f$0:Lcom/dsh/nameblock/ListActivity;
-
-    iput-object p2, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda23;->f$1:Ljava/lang/String;
 
     return-void
 .end method
@@ -28,13 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .registers 2
+    .registers 1
 
-    iget-object v0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda23;->f$0:Lcom/dsh/nameblock/ListActivity;
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda23;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda23;->f$1:Ljava/lang/String;
-
-    invoke-static {v0, p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$xlrccV5TKuLiY9NYutoD7Es13xA(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;)V
+    invoke-static {p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$vEHlHHOtlBZHBm9WkuPCAt4FsE8(Lcom/dsh/nameblock/ListActivity;)V
 
     return-void
 .end method

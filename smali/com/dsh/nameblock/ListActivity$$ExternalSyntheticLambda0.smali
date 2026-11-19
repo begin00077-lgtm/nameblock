@@ -28,7 +28,7 @@
 
     iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
 
-    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$actionText$2(Ljava/lang/Runnable;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->lambda$actionText$3(Ljava/lang/Runnable;Landroid/view/View;)V
 
     return-void
 .end method

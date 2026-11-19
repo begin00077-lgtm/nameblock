@@ -236,7 +236,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f010005
+    const p1, 0x7f010006
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getColor(I)I
 
@@ -258,14 +258,14 @@
 .method private applyRange()V
     .registers 5
 
-    .line 168
+    .line 190
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
     if-gez v0, :cond_5
 
     return-void
 
-    .line 169
+    .line 191
     :cond_5
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->base:[Z
 
@@ -277,7 +277,7 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 170
+    .line 192
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
     iget v1, p0, Lcom/dsh/nameblock/CharPickerView;->lastIdx:I
@@ -286,7 +286,7 @@
 
     move-result v0
 
-    .line 171
+    .line 193
     iget v1, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
     iget v2, p0, Lcom/dsh/nameblock/CharPickerView;->lastIdx:I
@@ -298,7 +298,7 @@
     :goto_1e
     if-gt v0, v1, :cond_30
 
-    .line 174
+    .line 196
     iget-object v2, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
 
     array-length v3, v2
@@ -317,7 +317,7 @@
 
     goto :goto_1e
 
-    .line 175
+    .line 197
     :cond_30
     invoke-direct {p0}, Lcom/dsh/nameblock/CharPickerView;->notifyChanged()V
 
@@ -327,21 +327,21 @@
 .method private indexAt(FF)I
     .registers 5
 
-    .line 179
+    .line 201
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->cellW:F
 
     div-float/2addr p1, v0
 
     float-to-int p1, p1
 
-    .line 180
+    .line 202
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->cellH:F
 
     div-float/2addr p2, v0
 
     float-to-int p2, p2
 
-    .line 181
+    .line 203
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->cols:I
 
     add-int/lit8 v0, v0, -0x1
@@ -356,7 +356,7 @@
 
     move-result p1
 
-    .line 182
+    .line 204
     invoke-direct {p0}, Lcom/dsh/nameblock/CharPickerView;->rows()I
 
     move-result v1
@@ -371,14 +371,14 @@
 
     move-result p2
 
-    .line 183
+    .line 205
     iget v1, p0, Lcom/dsh/nameblock/CharPickerView;->cols:I
 
     mul-int/2addr p2, v1
 
     add-int/2addr p2, p1
 
-    .line 184
+    .line 206
     iget-object p0, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
     array-length p0, p0
@@ -399,7 +399,7 @@
 .method private notifyChanged()V
     .registers 2
 
-    .line 188
+    .line 210
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->listener:Lcom/dsh/nameblock/CharPickerView$Listener;
 
     if-eqz v0, :cond_b
@@ -417,7 +417,7 @@
 .method private rows()I
     .registers 2
 
-    .line 81
+    .line 103
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
     array-length v0, v0
@@ -438,14 +438,14 @@
 .method public getKeyword()Ljava/lang/String;
     .registers 5
 
-    .line 75
+    .line 97
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const/4 v1, 0x0
 
-    .line 76
+    .line 98
     :goto_6
     iget-object v2, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
@@ -468,7 +468,7 @@
 
     goto :goto_6
 
-    .line 77
+    .line 99
     :cond_19
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -480,10 +480,10 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .registers 12
 
-    .line 95
+    .line 117
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 96
+    .line 118
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->textPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->descent()F
@@ -504,7 +504,7 @@
 
     const/4 v2, 0x0
 
-    .line 97
+    .line 119
     :goto_14
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
@@ -512,17 +512,17 @@
 
     if-ge v2, v3, :cond_88
 
-    .line 98
+    .line 120
     iget v3, p0, Lcom/dsh/nameblock/CharPickerView;->cols:I
 
     div-int v4, v2, v3
 
-    .line 99
+    .line 121
     rem-int v3, v2, v3
 
     int-to-float v3, v3
 
-    .line 100
+    .line 122
     iget v5, p0, Lcom/dsh/nameblock/CharPickerView;->cellW:F
 
     mul-float/2addr v3, v5
@@ -533,14 +533,14 @@
 
     int-to-float v4, v4
 
-    .line 101
+    .line 123
     iget v7, p0, Lcom/dsh/nameblock/CharPickerView;->cellH:F
 
     mul-float/2addr v4, v7
 
     add-float/2addr v4, v6
 
-    .line 102
+    .line 124
     iget-object v8, p0, Lcom/dsh/nameblock/CharPickerView;->cell:Landroid/graphics/RectF;
 
     add-float/2addr v5, v3
@@ -557,7 +557,7 @@
 
     invoke-virtual {v8, v3, v4, v5, v7}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 104
+    .line 126
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
 
     aget-boolean v3, v3, v2
@@ -566,7 +566,7 @@
 
     if-eqz v3, :cond_53
 
-    .line 105
+    .line 127
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->cell:Landroid/graphics/RectF;
 
     iget v5, p0, Lcom/dsh/nameblock/CharPickerView;->cellH:F
@@ -579,7 +579,7 @@
 
     invoke-virtual {p1, v3, v6, v5, v4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 106
+    .line 128
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->textPaint:Landroid/graphics/Paint;
 
     const/4 v4, -0x1
@@ -588,7 +588,7 @@
 
     goto :goto_6f
 
-    .line 108
+    .line 130
     :cond_53
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->cell:Landroid/graphics/RectF;
 
@@ -602,14 +602,14 @@
 
     invoke-virtual {p1, v3, v6, v5, v4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 109
+    .line 131
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->textPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p0}, Lcom/dsh/nameblock/CharPickerView;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
-    const v5, 0x7f010004
+    const v5, 0x7f010005
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -617,7 +617,7 @@
 
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 111
+    .line 133
     :goto_6f
     iget-object v3, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
@@ -652,7 +652,7 @@
 .method protected onMeasure(II)V
     .registers 4
 
-    .line 86
+    .line 108
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p1
@@ -664,7 +664,7 @@
     :cond_8
     int-to-float p2, p1
 
-    .line 88
+    .line 110
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->cols:I
 
     int-to-float v0, v0
@@ -677,10 +677,10 @@
 
     mul-float/2addr p2, v0
 
-    .line 89
+    .line 111
     iput p2, p0, Lcom/dsh/nameblock/CharPickerView;->cellH:F
 
-    .line 90
+    .line 112
     invoke-direct {p0}, Lcom/dsh/nameblock/CharPickerView;->rows()I
 
     move-result p2
@@ -707,7 +707,7 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .registers 7
 
-    .line 117
+    .line 139
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
 
     array-length v0, v0
@@ -718,7 +718,7 @@
 
     return v1
 
-    .line 118
+    .line 140
     :cond_7
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -740,29 +740,29 @@
 
     if-eq v0, v4, :cond_1c
 
-    .line 162
+    .line 184
     invoke-super {p0, p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
 
     return p0
 
-    .line 157
+    .line 179
     :cond_1c
     iput v3, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
-    .line 158
+    .line 180
     iput-boolean v1, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
     return v2
 
-    .line 130
+    .line 152
     :cond_21
     iget-boolean v0, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
     if-nez v0, :cond_40
 
-    .line 131
+    .line 153
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -771,7 +771,7 @@
 
     sub-float/2addr v0, v1
 
-    .line 132
+    .line 154
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v1
@@ -786,7 +786,7 @@
 
     add-float/2addr v0, v1
 
-    .line 133
+    .line 155
     iget v1, p0, Lcom/dsh/nameblock/CharPickerView;->slop:I
 
     mul-int/2addr v1, v1
@@ -799,13 +799,13 @@
 
     iput-boolean v2, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
-    .line 135
+    .line 157
     :cond_40
     iget-boolean v0, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
     if-eqz v0, :cond_5c
 
-    .line 136
+    .line 158
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -818,24 +818,24 @@
 
     move-result p1
 
-    .line 137
+    .line 159
     iget v0, p0, Lcom/dsh/nameblock/CharPickerView;->lastIdx:I
 
     if-eq p1, v0, :cond_5c
 
-    .line 138
+    .line 160
     iput p1, p0, Lcom/dsh/nameblock/CharPickerView;->lastIdx:I
 
-    .line 139
+    .line 161
     invoke-direct {p0}, Lcom/dsh/nameblock/CharPickerView;->applyRange()V
 
-    .line 140
+    .line 162
     invoke-virtual {p0}, Lcom/dsh/nameblock/CharPickerView;->invalidate()V
 
     :cond_5c
     return v2
 
-    .line 146
+    .line 168
     :cond_5d
     iget-boolean p1, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
@@ -845,7 +845,7 @@
 
     if-ltz p1, :cond_72
 
-    .line 148
+    .line 170
     iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
 
     aget-boolean v4, v0, p1
@@ -854,22 +854,22 @@
 
     aput-boolean v4, v0, p1
 
-    .line 149
+    .line 171
     invoke-direct {p0}, Lcom/dsh/nameblock/CharPickerView;->notifyChanged()V
 
-    .line 150
+    .line 172
     invoke-virtual {p0}, Lcom/dsh/nameblock/CharPickerView;->invalidate()V
 
-    .line 152
+    .line 174
     :cond_72
     iput v3, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
-    .line 153
+    .line 175
     iput-boolean v1, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
     return v2
 
-    .line 120
+    .line 142
     :cond_77
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -885,27 +885,27 @@
 
     iput v0, p0, Lcom/dsh/nameblock/CharPickerView;->startIdx:I
 
-    .line 121
+    .line 143
     iput v0, p0, Lcom/dsh/nameblock/CharPickerView;->lastIdx:I
 
-    .line 122
+    .line 144
     iput-boolean v1, p0, Lcom/dsh/nameblock/CharPickerView;->dragging:Z
 
-    .line 123
+    .line 145
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
     iput v0, p0, Lcom/dsh/nameblock/CharPickerView;->downX:F
 
-    .line 124
+    .line 146
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
 
     iput p1, p0, Lcom/dsh/nameblock/CharPickerView;->downY:F
 
-    .line 125
+    .line 147
     iget-object p1, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
 
     iget-object p0, p0, Lcom/dsh/nameblock/CharPickerView;->base:[Z
@@ -915,6 +915,172 @@
     invoke-static {p1, v1, p0, v1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return v2
+.end method
+
+.method public preselectContaining([Ljava/lang/String;)V
+    .registers 11
+
+    if-eqz p1, :cond_79
+
+    .line 76
+    iget-object v0, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    if-nez v0, :cond_9
+
+    goto/16 :goto_79
+
+    .line 77
+    :cond_9
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 78
+    iget-object v1, p0, Lcom/dsh/nameblock/CharPickerView;->chars:[Ljava/lang/String;
+
+    array-length v2, v1
+
+    const/4 v3, 0x0
+
+    move v4, v3
+
+    :goto_13
+    if-ge v4, v2, :cond_1d
+
+    aget-object v5, v1, v4
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_13
+
+    .line 79
+    :cond_1d
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 80
+    array-length v1, p1
+
+    move v2, v3
+
+    :goto_29
+    if-ge v2, v1, :cond_61
+
+    aget-object v4, p1, v2
+
+    if-nez v4, :cond_30
+
+    goto :goto_48
+
+    .line 82
+    :cond_30
+    invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v5, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 83
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_41
+
+    goto :goto_48
+
+    :cond_41
+    move v5, v3
+
+    .line 86
+    :goto_42
+    invoke-virtual {v0, v4, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-gez v5, :cond_4b
+
+    :goto_48
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_29
+
+    :cond_4b
+    move v6, v5
+
+    .line 88
+    :goto_4c
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v7
+
+    add-int/2addr v7, v5
+
+    if-ge v6, v7, :cond_5e
+
+    iget-object v7, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
+
+    array-length v8, v7
+
+    if-ge v6, v8, :cond_5e
+
+    const/4 v8, 0x1
+
+    aput-boolean v8, v7, v6
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_4c
+
+    :cond_5e
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_42
+
+    .line 92
+    :cond_61
+    iget-object p1, p0, Lcom/dsh/nameblock/CharPickerView;->sel:[Z
+
+    invoke-virtual {p1}, [Z->clone()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, [Z
+
+    iput-object p1, p0, Lcom/dsh/nameblock/CharPickerView;->base:[Z
+
+    .line 93
+    invoke-virtual {p0}, Lcom/dsh/nameblock/CharPickerView;->invalidate()V
+
+    .line 94
+    iget-object p1, p0, Lcom/dsh/nameblock/CharPickerView;->listener:Lcom/dsh/nameblock/CharPickerView$Listener;
+
+    if-eqz p1, :cond_79
+
+    invoke-virtual {p0}, Lcom/dsh/nameblock/CharPickerView;->getKeyword()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-interface {p1, p0}, Lcom/dsh/nameblock/CharPickerView$Listener;->onChanged(Ljava/lang/String;)V
+
+    :cond_79
+    :goto_79
+    return-void
 .end method
 
 .method public setListener(Lcom/dsh/nameblock/CharPickerView$Listener;)V

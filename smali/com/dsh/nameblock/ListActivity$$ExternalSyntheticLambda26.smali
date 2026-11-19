@@ -3,38 +3,38 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity;
 
-.field public final synthetic f$1:Lcom/dsh/nameblock/CharPickerView;
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;Lcom/dsh/nameblock/CharPickerView;)V
+.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;)V
     .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    iput-object p2, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$1:Lcom/dsh/nameblock/CharPickerView;
+    iput-object p2, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+.method public final onClick(Landroid/view/View;)V
+    .registers 3
 
     iget-object v0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$1:Lcom/dsh/nameblock/CharPickerView;
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda26;->f$1:Ljava/lang/String;
 
-    invoke-static {v0, p0, p1, p2}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$gRtqqw9IJZ9vMZDXIyz4q4yMd4U(Lcom/dsh/nameblock/ListActivity;Lcom/dsh/nameblock/CharPickerView;Landroid/content/DialogInterface;I)V
+    invoke-static {v0, p0, p1}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$PPA8jJZu2qQyWvmj37Muw8Lqtno(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;Landroid/view/View;)V
 
     return-void
 .end method

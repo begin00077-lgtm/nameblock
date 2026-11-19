@@ -443,7 +443,7 @@
     .line 69
     invoke-virtual {v8, v4, v4, v4, v4}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    const v4, 0x7f010001
+    const v4, 0x7f010002
 
     .line 70
     invoke-virtual {v0, v4}, Landroid/app/Activity;->getColor(I)I
@@ -472,7 +472,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    const v5, 0x7f010004
+    const v5, 0x7f010005
 
     .line 76
     invoke-virtual {v0, v5}, Landroid/app/Activity;->getColor(I)I
@@ -611,7 +611,7 @@
     .line 100
     invoke-virtual {v4, v14}, Landroid/widget/TextView;->setTextSize(F)V
 
-    const v12, 0x7f010005
+    const v12, 0x7f010006
 
     .line 101
     invoke-virtual {v0, v12}, Landroid/app/Activity;->getColor(I)I

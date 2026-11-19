@@ -25,6 +25,10 @@
 
 .field sub:Ljava/lang/String;
 
+.field subAction:Ljava/lang/Runnable;
+
+.field subActionLabel:Ljava/lang/String;
+
 .field time:Ljava/lang/String;
 
 .field title:Ljava/lang/String;
@@ -40,7 +44,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .line 1192
+    .line 1300
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

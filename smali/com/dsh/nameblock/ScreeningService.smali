@@ -45,7 +45,7 @@
 .method private static isEmergency(Ljava/lang/String;)Z
     .registers 6
 
-    .line 101
+    .line 111
     sget-object v0, Lcom/dsh/nameblock/ScreeningService;->EMERGENCY:[Ljava/lang/String;
 
     array-length v1, v0
@@ -81,404 +81,481 @@
 
 # virtual methods
 .method public onScreenCall(Landroid/telecom/Call$Details;)V
-    .registers 17
+    .registers 18
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     const-string v0, "\u540d\u79f0\u542b\u300c"
 
-    const-string v2, "num="
+    const-string v2, "\u53f7\u7801\u6807\u8bb0\u542b\u300c"
 
-    const-string v3, ""
+    const-string v3, "num="
 
-    const/4 v4, 0x1
+    const-string v4, ""
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
-    .line 33
-    :try_start_a
-    invoke-static {p0}, Lcom/dsh/nameblock/Store;->get(Landroid/content/Context;)Lcom/dsh/nameblock/Store;
+    const/4 v7, 0x0
 
-    move-result-object v7
+    .line 33
+    :try_start_d
+    invoke-static/range {p0 .. p0}, Lcom/dsh/nameblock/Store;->get(Landroid/content/Context;)Lcom/dsh/nameblock/Store;
+
+    move-result-object v8
 
     .line 34
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/Call$Details;->getHandle()Landroid/net/Uri;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-nez v8, :cond_16
+    if-nez v9, :cond_19
 
-    move-object v8, v3
+    move-object v9, v4
 
-    goto :goto_1e
+    goto :goto_21
 
-    :cond_16
+    :cond_19
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/Call$Details;->getHandle()Landroid/net/Uri;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
-
-    move-result-object v8
-    :try_end_1e
-    .catchall {:try_start_a .. :try_end_1e} :catchall_e0
-
-    .line 35
-    :goto_1e
-    :try_start_1e
-    invoke-virtual/range {p1 .. p1}, Landroid/telecom/Call$Details;->getCallerDisplayName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 36
-    invoke-static {v8}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
-    const-string v10, "call"
+    invoke-virtual {v9}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v9
+    :try_end_21
+    .catchall {:try_start_d .. :try_end_21} :catchall_124
+
+    .line 35
+    :goto_21
+    :try_start_21
+    invoke-virtual/range {p1 .. p1}, Landroid/telecom/Call$Details;->getCallerDisplayName()Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 36
+    invoke-static {v9}, Lcom/dsh/nameblock/Norm;->number(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string v11, "call"
 
     .line 39
-    invoke-virtual {v7}, Lcom/dsh/nameblock/Store;->enabled()Z
-
-    move-result v11
-
-    invoke-virtual {v7}, Lcom/dsh/nameblock/Store;->mode()I
+    invoke-virtual {v8}, Lcom/dsh/nameblock/Store;->enabled()Z
 
     move-result v12
 
+    invoke-virtual {v8}, Lcom/dsh/nameblock/Store;->mode()I
+
+    move-result v13
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v15, " name="
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v15, " enabled="
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v12, " mode="
+
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 38
+    invoke-static {v1, v11, v12}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 41
+    invoke-virtual {v8}, Lcom/dsh/nameblock/Store;->enabled()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_de
+
+    invoke-static {v10}, Lcom/dsh/nameblock/ScreeningService;->isEmergency(Ljava/lang/String;)Z
+
+    move-result v11
+
+    if-nez v11, :cond_de
+
+    .line 42
+    invoke-static {v1, v10}, Lcom/dsh/nameblock/Contacts;->isContact(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v11
+
+    .line 43
+    invoke-virtual {v8, v10, v11}, Lcom/dsh/nameblock/Store;->setLastCall(Ljava/lang/String;Z)V
+
+    if-nez v11, :cond_79
+
+    .line 44
+    invoke-virtual {v8, v10}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_79
+
+    invoke-virtual {v8, v10}, Lcom/dsh/nameblock/Store;->isAllowed(Ljava/lang/String;)Z
+
+    move-result v12
+
+    :cond_79
+    if-nez v11, :cond_84
+
+    .line 47
+    invoke-virtual {v8, v10}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_82
+
+    goto :goto_84
+
+    :cond_82
+    move v11, v7
+
+    goto :goto_85
+
+    :cond_84
+    :goto_84
+    move v11, v5
+
+    .line 51
+    :goto_85
+    invoke-virtual {v8, v10}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_96
+
+    invoke-virtual {v8, v10}, Lcom/dsh/nameblock/Store;->isBlockedNumber(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_96
+
+    const-string v0, "\u5df2\u5728\u62e6\u622a\u540d\u5355"
+    :try_end_93
+    .catchall {:try_start_21 .. :try_end_93} :catchall_121
+
+    :goto_93
+    move v2, v5
+
+    goto/16 :goto_132
+
+    :cond_96
+    const-string v12, " \u00b7 "
+
+    const-string v13, "\u300d"
+
+    if-eqz v6, :cond_e1
+
+    .line 54
+    :try_start_9c
+    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v14
+
+    if-nez v14, :cond_e1
+
+    .line 55
+    invoke-static {v6}, Lcom/dsh/nameblock/Norm;->name(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v8, v2}, Lcom/dsh/nameblock/Store;->matchKeyword(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_de
+
+    if-nez v11, :cond_de
+
+    .line 58
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+    :try_end_c1
+    .catchall {:try_start_9c .. :try_end_c1} :catchall_121
+
+    .line 59
+    :try_start_c1
+    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
     new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v14, " name="
+    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v14, " enabled="
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v11, " mode="
-
-    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v0
 
-    .line 38
-    invoke-static {p0, v10, v11}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v10, v0}, Lcom/dsh/nameblock/Store;->putNumber(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_da
+    .catchall {:try_start_c1 .. :try_end_da} :catchall_dc
 
-    .line 41
-    invoke-virtual {v7}, Lcom/dsh/nameblock/Store;->enabled()Z
+    move v2, v5
 
-    move-result v10
+    goto :goto_131
 
-    if-eqz v10, :cond_da
+    :catchall_dc
+    move-exception v0
 
-    invoke-static {v9}, Lcom/dsh/nameblock/ScreeningService;->isEmergency(Ljava/lang/String;)Z
+    goto :goto_127
 
-    move-result v10
+    :cond_de
+    move-object v0, v4
 
-    if-nez v10, :cond_da
+    move v2, v7
 
-    .line 42
-    invoke-static {p0, v9}, Lcom/dsh/nameblock/Contacts;->isContact(Landroid/content/Context;Ljava/lang/String;)Z
+    goto :goto_132
 
-    move-result v10
-
-    .line 43
-    invoke-virtual {v7, v9, v10}, Lcom/dsh/nameblock/Store;->setLastCall(Ljava/lang/String;Z)V
-
-    if-nez v10, :cond_76
-
-    .line 44
-    invoke-virtual {v7, v9}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_76
-
-    invoke-virtual {v7, v9}, Lcom/dsh/nameblock/Store;->isAllowed(Ljava/lang/String;)Z
-
-    move-result v11
-
-    :cond_76
-    if-nez v10, :cond_81
-
-    .line 47
-    invoke-virtual {v7, v9}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_7f
-
-    goto :goto_81
-
-    :cond_7f
-    move v10, v6
-
-    goto :goto_82
-
-    :cond_81
-    :goto_81
-    move v10, v4
-
-    .line 51
-    :goto_82
-    invoke-virtual {v7, v9}, Lcom/dsh/nameblock/Store;->isWhitelisted(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_92
-
-    invoke-virtual {v7, v9}, Lcom/dsh/nameblock/Store;->isBlockedNumber(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_92
-
-    const-string v0, "\u5df2\u5728\u62e6\u622a\u540d\u5355"
-
-    invoke-virtual {v7, v9, v5}, Lcom/dsh/nameblock/Store;->putNumber(Ljava/lang/String;Ljava/lang/String;)V
-
-    move v7, v4
-
-    goto :goto_ee
-
-    :cond_92
-    if-eqz v5, :cond_da
-
-    .line 54
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v11
-
-    if-nez v11, :cond_da
-
-    .line 55
-    invoke-static {v5}, Lcom/dsh/nameblock/Norm;->name(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v7, v11}, Lcom/dsh/nameblock/Store;->matchKeyword(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    if-eqz v11, :cond_da
-
-    if-nez v10, :cond_da
-
-    .line 58
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "\u300d"
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-    :try_end_bb
-    .catchall {:try_start_1e .. :try_end_bb} :catchall_dd
-
-    .line 59
-    :try_start_bb
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+    .line 63
+    :cond_e1
+    :try_start_e1
+    invoke-static {v1, v10}, Lcom/dsh/nameblock/Marks;->of(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    .line 64
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v14
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v14, :cond_de
 
-    const-string v0, " \u00b7 "
+    if-nez v11, :cond_de
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 65
+    invoke-static {v0}, Lcom/dsh/nameblock/Norm;->name(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v11}, Lcom/dsh/nameblock/Store;->matchKeyword(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_de
+
+    .line 68
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+    :try_end_106
+    .catchall {:try_start_e1 .. :try_end_106} :catchall_121
+
+    .line 69
+    :try_start_106
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v7, v9, v0}, Lcom/dsh/nameblock/Store;->putNumber(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_d6
-    .catchall {:try_start_bb .. :try_end_d6} :catchall_d8
+    invoke-virtual {v8, v10, v0}, Lcom/dsh/nameblock/Store;->putNumber(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_11b
+    .catchall {:try_start_106 .. :try_end_11b} :catchall_11e
 
-    move v7, v4
+    move-object v0, v2
 
-    goto :goto_ed
+    goto/16 :goto_93
 
-    :catchall_d8
+    :catchall_11e
     move-exception v0
 
-    goto :goto_e3
+    move-object v11, v2
 
-    :cond_da
-    move-object v0, v3
+    goto :goto_127
 
-    move v7, v6
-
-    goto :goto_ee
-
-    :catchall_dd
+    :catchall_121
     move-exception v0
 
-    move-object v10, v3
+    move-object v11, v4
 
-    goto :goto_e3
+    goto :goto_127
 
-    :catchall_e0
+    :catchall_124
     move-exception v0
 
-    move-object v8, v3
+    move-object v9, v4
 
-    move-object v10, v8
+    move-object v11, v9
 
-    :goto_e3
-    const-string v7, "error"
+    :goto_127
+    const-string v2, "error"
 
-    .line 66
+    .line 76
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p0, v7, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2, v0}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    move v7, v6
+    move v2, v7
 
-    :goto_ed
-    move-object v0, v10
+    :goto_131
+    move-object v0, v11
 
-    .line 71
-    :goto_ee
-    new-instance v9, Landroid/telecom/CallScreeningService$CallResponse$Builder;
+    .line 81
+    :goto_132
+    new-instance v8, Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
-    invoke-direct {v9}, Landroid/telecom/CallScreeningService$CallResponse$Builder;-><init>()V
+    invoke-direct {v8}, Landroid/telecom/CallScreeningService$CallResponse$Builder;-><init>()V
 
-    if-eqz v7, :cond_108
+    if-eqz v2, :cond_14c
 
-    .line 73
-    invoke-virtual {v9, v4}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setDisallowCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
-
-    move-result-object v10
-
-    .line 74
-    invoke-virtual {v10, v4}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setRejectCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
+    .line 83
+    invoke-virtual {v8, v5}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setDisallowCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
     move-result-object v10
 
-    .line 75
-    invoke-virtual {v10, v4}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSilenceCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
+    .line 84
+    invoke-virtual {v10, v5}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setRejectCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
     move-result-object v10
 
-    .line 76
-    invoke-virtual {v10, v6}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSkipCallLog(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
+    .line 85
+    invoke-virtual {v10, v5}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSilenceCall(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
     move-result-object v10
-
-    .line 77
-    invoke-virtual {v10, v4}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSkipNotification(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
-
-    .line 82
-    :cond_108
-    :try_start_108
-    invoke-virtual {v9}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->build()Landroid/telecom/CallScreeningService$CallResponse;
-
-    move-result-object v4
-
-    move-object/from16 v9, p1
-
-    invoke-virtual {p0, v9, v4}, Lcom/dsh/nameblock/ScreeningService;->respondToCall(Landroid/telecom/Call$Details;Landroid/telecom/CallScreeningService$CallResponse;)V
-    :try_end_111
-    .catchall {:try_start_108 .. :try_end_111} :catchall_111
 
     .line 86
-    :catchall_111
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v7}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSkipCallLog(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
-    invoke-direct {v4, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v10
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 87
+    invoke-virtual {v10, v5}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->setSkipNotification(Z)Landroid/telecom/CallScreeningService$CallResponse$Builder;
 
-    const-string v2, " block="
+    .line 92
+    :cond_14c
+    :try_start_14c
+    invoke-virtual {v8}, Landroid/telecom/CallScreeningService$CallResponse$Builder;->build()Landroid/telecom/CallScreeningService$CallResponse;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-object/from16 v8, p1
 
-    const-string v2, " silence="
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v2, " reason="
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v4, "decision"
-
-    invoke-static {p0, v4, v2}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    if-nez v7, :cond_13d
-
-    goto :goto_148
-
-    .line 91
-    :cond_13d
-    :try_start_13d
-    invoke-static {p0}, Lcom/dsh/nameblock/Store;->get(Landroid/content/Context;)Lcom/dsh/nameblock/Store;
-
-    move-result-object v2
-
-    if-nez v5, :cond_144
-
-    goto :goto_145
-
-    :cond_144
-    move-object v3, v5
-
-    :goto_145
-    invoke-virtual {v2, v8, v3, v0}, Lcom/dsh/nameblock/Store;->addLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_148
-    .catchall {:try_start_13d .. :try_end_148} :catchall_148
-
-    :catchall_148
-    :goto_148
-    if-eqz v7, :cond_14d
+    invoke-virtual {v1, v8, v5}, Lcom/dsh/nameblock/ScreeningService;->respondToCall(Landroid/telecom/Call$Details;Landroid/telecom/CallScreeningService$CallResponse;)V
+    :try_end_155
+    .catchall {:try_start_14c .. :try_end_155} :catchall_155
 
     .line 96
-    invoke-static {p0, v8, v5, v0}, Lcom/dsh/nameblock/Notifier;->blocked(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :catchall_155
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    :cond_14d
+    invoke-direct {v5, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, " block="
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v3, " silence="
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v3, " reason="
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v5, "decision"
+
+    invoke-static {v1, v5, v3}, Lcom/dsh/nameblock/Diag;->log(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez v2, :cond_181
+
+    goto :goto_18c
+
+    .line 101
+    :cond_181
+    :try_start_181
+    invoke-static/range {p0 .. p0}, Lcom/dsh/nameblock/Store;->get(Landroid/content/Context;)Lcom/dsh/nameblock/Store;
+
+    move-result-object v3
+
+    if-nez v6, :cond_188
+
+    goto :goto_189
+
+    :cond_188
+    move-object v4, v6
+
+    :goto_189
+    invoke-virtual {v3, v9, v4, v0}, Lcom/dsh/nameblock/Store;->addLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_18c
+    .catchall {:try_start_181 .. :try_end_18c} :catchall_18c
+
+    :catchall_18c
+    :goto_18c
+    if-eqz v2, :cond_191
+
+    .line 106
+    invoke-static {v1, v9, v6, v0}, Lcom/dsh/nameblock/Notifier;->blocked(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_191
     return-void
 .end method

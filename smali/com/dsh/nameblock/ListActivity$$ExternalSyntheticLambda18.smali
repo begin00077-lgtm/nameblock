@@ -3,32 +3,38 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/dsh/nameblock/ListActivity;
 
+.field public final synthetic f$1:Landroid/widget/EditText;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;)V
-    .registers 2
+.method public synthetic constructor <init>(Lcom/dsh/nameblock/ListActivity;Landroid/widget/EditText;)V
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda18;->f$0:Lcom/dsh/nameblock/ListActivity;
+
+    iput-object p2, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda18;->f$1:Landroid/widget/EditText;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 1
+.method public final onClick(Landroid/view/View;)V
+    .registers 3
 
-    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda18;->f$0:Lcom/dsh/nameblock/ListActivity;
+    iget-object v0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda18;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    invoke-static {p0}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$vvWVXqiLS0QFVulhQZ7AyGlk9_I(Lcom/dsh/nameblock/ListActivity;)V
+    iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda18;->f$1:Landroid/widget/EditText;
+
+    invoke-static {v0, p0, p1}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$jpuSKP5EZSlDa7GS3oVvOpC5inE(Lcom/dsh/nameblock/ListActivity;Landroid/widget/EditText;Landroid/view/View;)V
 
     return-void
 .end method

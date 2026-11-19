@@ -34,7 +34,7 @@
 
     iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    invoke-static {v0, p0, p1, p2}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$1P-RCaARWXHFhY4fie96McZfMZE(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;Landroid/widget/CompoundButton;Z)V
+    invoke-static {v0, p0, p1, p2}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$GVeDS9Hrt_9zCuhtJeuAsF7yQn8(Lcom/dsh/nameblock/ListActivity;Ljava/lang/String;Landroid/widget/CompoundButton;Z)V
 
     return-void
 .end method

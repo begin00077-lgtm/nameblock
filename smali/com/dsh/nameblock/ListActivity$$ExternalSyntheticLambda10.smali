@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/RadioGroup$OnCheckedChangeListener;
 
 
 # instance fields
@@ -23,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .registers 2
+.method public final onCheckedChanged(Landroid/widget/RadioGroup;I)V
+    .registers 3
 
     iget-object p0, p0, Lcom/dsh/nameblock/ListActivity$$ExternalSyntheticLambda10;->f$0:Lcom/dsh/nameblock/ListActivity;
 
-    invoke-static {p0, p1}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$5I6xqa0iUAGLTO4-LWCx02kwrgQ(Lcom/dsh/nameblock/ListActivity;Landroid/view/View;)V
+    invoke-static {p0, p1, p2}, Lcom/dsh/nameblock/ListActivity;->$r8$lambda$TuQ2ClyWX3CUCZlyf3xuyLZkBoI(Lcom/dsh/nameblock/ListActivity;Landroid/widget/RadioGroup;I)V
 
     return-void
 .end method
